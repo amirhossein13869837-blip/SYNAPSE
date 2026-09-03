@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.ws-cover{border-radius:26px;overflow:hidden;border:7px solid #fff;box-shadow:var(--sh-lg);margin-top:44px}
+.ws-cover img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.m-card{padding:22px 24px;border-radius:18px;display:flex;align-items:center;gap:15px}
+.m-card i{width:46px;height:46px;flex:none;border-radius:13px;background:var(--navy);color:var(--gold);font-size:19px;display:flex;align-items:center;justify-content:center}
+.m-card small{display:block;font-size:12.5px;color:var(--text-2)}
+.m-card b{font-size:15px}
+.cs-sec{max-width:840px}
+.cs-sec h2{font-family:var(--fh);font-weight:900;font-size:clamp(1.6rem,3.4vw,2.3rem);margin:20px 0 16px;display:flex;align-items:center;gap:14px}
+.cs-sec h2::before{content:'';width:10px;height:10px;background:var(--gold);transform:rotate(45deg);flex:none}
+.cs-sec p{color:var(--text-2);margin-bottom:16px}
+.cs-sec p strong{color:var(--text)}
+.cs-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:26px 0 8px}
+.cs-item{padding:24px 22px;border-radius:18px}
+.cs-item i{width:44px;height:44px;border-radius:12px;background:rgba(32,178,170,.12);color:var(--teal);font-size:19px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cs-item h3{font-family:var(--fh);font-weight:800;font-size:16.5px;margin-bottom:6px}
+.cs-item p{font-size:13.5px;margin:0}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0 10px}
+.gal-grid img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:20px;border:5px solid #fff;box-shadow:var(--sh-sm)}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.res-card{padding:26px 24px;border-radius:20px;text-align:center}
+.res-card b{font-family:var(--fh);font-weight:900;font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--teal);display:block}
+.res-card small{font-size:13.5px;color:var(--text-2)}
+.pn-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
+.pn-card{padding:26px 28px;border-radius:20px;display:flex;align-items:center;gap:18px;transition:transform .4s var(--ease),box-shadow .4s}
+.pn-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
+.pn-card i{width:50px;height:50px;flex:none;border-radius:15px;background:var(--navy);color:var(--teal);font-size:20px;display:flex;align-items:center;justify-content:center}
+.pn-card small{font-size:12.5px;color:var(--text-2);display:block}
+.pn-card b{font-family:var(--fh);font-weight:800;font-size:17px}
+@media(max-width:900px){.meta-grid{grid-template-columns:1fr 1fr}.cs-list{grid-template-columns:1fr}.res-grid{grid-template-columns:1fr 1fr}.pn-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.meta-grid,.gal-grid,.res-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="locked">
+
+<div class="ld-a"></div>
+<div class="ld-m"><span class="ld-logo">ک</span></div>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link active">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="works.html"><small>۰۳</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۴</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۵</small> رزومه</a>
+  <a class="m-link" href="index.html#contact"><small>۰۶</small> تماس</a>
+  <div class="m-cta"><a href="index.html#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+<section class="ph" style="padding-bottom:30px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><a href="works.html">نمونه‌کارها</a><i class="ri-arrow-left-s-line"></i><b>مدرن‌شاپ</b></nav>
+    <h1 class="ph-title" data-split>فروشگاه اینترنتی <em>مدرن‌شاپ</em></h1>
+    <p class="ph-desc">بازطراحی کامل تجربه‌ی خرید آنلاین یک برند پوشاک؛ از داشبورد کند و قدیمی تا تجربه‌ای که نرخ تبدیل را دو برابر کرد.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="ws-cover reveal" data-tilt>
+      <img src="images/image 3.png" alt="نمای مدرن‌شاپ">
+    </div>
+    <div class="meta-grid">
+      <div class="m-card glass spot reveal"><i class="ri-user-3-line"></i><div><small>کارفرما</small><b>برند پوشاک مدرن‌شاپ</b></div></div>
+      <div class="m-card glass spot reveal" style="--d:.06s"><i class="ri-briefcase-4-line"></i><div><small>نقش من</small><b>توسعه‌دهنده‌ی ارشد فرانت‌اند</b></div></div>
+      <div class="m-card glass spot reveal" style="--d:.12s"><i class="ri-time-line"></i><div><small>مدت پروژه</small><b>۱۰ هفته</b></div></div>
+      <div class="m-card glass spot reveal" style="--d:.06s"><i class="ri-team-line"></i><div><small>تیم</small><b>۳ نفره (بک‌اند، UI، من)</b></div></div>
+      <div class="m-card glass spot reveal" style="--d:.12s"><i class="ri-calendar-line"></i><div><small>سال</small><b>۱۴۰۳</b></div></div>
+      <div class="m-card glass spot reveal" style="--d:.18s"><i class="ri-stack-line"></i><div><small>استک</small><b>Next.js / Tailwind / Framer</b></div></div>
+    </div>
+
+    <div class="cs-sec reveal" style="margin-top:60px">
+      <h2>نگاه کلی</h2>
+      <p>مدرن‌شاپ با فروش آنلاین خوب اما <strong>وب‌سایتی از دهه‌ی قبل</strong> به من مراجعه کرد: صفحات سنگین، سبد خریدی که با هر رفرش خالی می‌شد و فرآیند پرداختی که کاربر را وسط راه جا می‌گذاشت. هدف پروژه نه‌فقط «زیباتر شدن»، بلکه <strong>ترغیب‌شدن کاربر تا آخرِ مسیر خرید</strong> بود.</p>
+    </div>
+
+    <div class="cs-sec reveal">
+      <h2>چالش‌ها</h2>
+      <p>سه مشکل اصلی که داده‌های آنالیتیکس و مصاحبه با کاربران نشان می‌داد:</p>
+      <div class="cs-list">
+        <div class="cs-item glass spot"><i class="ri-dashboard-3-line"></i><h3>فرآیند پرداخت طولانی</h3><p>۵ صفحه‌ی جدا برای تکمیل خرید؛ ۶۸٪ کاربران در صفحه‌ی سوم رها می‌کردند.</p></div>
+        <div class="cs-item glass spot"><i class="ri-speed-up-line"></i><h3>سرعت پایین</h3><p>لود اولیه‌ی ۵.۴ ثانیه روی موبایل؛ تصاویر بهینه نشده و باندل‌های چند مگابایتی.</p></div>
+        <div class="cs-item glass spot"><i class="ri-shopping-bag-3-line"></i><h3>سبد خرید شکننده</h3><p>هر رفرش یعنی سبد خالی؛ یعنی اعتمادِ ازدست‌رفته و فروشِ نصفه‌کاره.</p></div>
+      </div>
+    </div>
+
+    <div class="cs-sec reveal">
+      <h2>راه‌حل‌ها</h2>
+      <p>با تیم، تجربه را از «صفحات» به «یک جریان پیوسته» تبدیل کردیم:</p>
+      <div class="cs-list">
+        <div class="cs-item glass spot"><i class="ri-window-2-line"></i><h3>پرداخت یک‌صفحه‌ای</h3><p>کل فرآیند ۵ مرحله‌ای در یک صفحه با اعتبارسنجی لحظه‌ای و انیمیشن‌های انتقال نرم.</p></div>
+        <div class="cs-item glass spot"><i class="ri-shield-check-line"></i><h3>سبد ماندگار</h3><p>همگام‌سازی سبد با سرور و localStorage؛ سبد حالا در همه‌ی دستگاه‌ها زنده می‌ماند.</p></div>
+        <div class="cs-item glass spot"><i class="ri-magic-line"></i><h3>بهینه‌سازی رادیکال</h3><p>تصاویر WebP با lazy-load هوشمند، تقسیم کد و کش لبه — نتیجه: ۱.۲ ثانیه لود.</p></div>
+      </div>
+    </div>
+
+    <div class="cs-sec reveal">
+      <h2>از داخل محصول</h2>
+      <div class="gal-grid">
+        <img src="images/image 4.jpg" alt="صفحه‌ی محصول" data-tilt>
+        <img src="images/image 5.jpg" alt="فرآیند پرداخت" data-tilt>
+      </div>
+    </div>
+
+    <div class="cs-sec reveal">
+      <h2>نتایج</h2>
+      <p>شش ماه بعد از راه‌اندازی، اعداد خودشان حرف زدند:</p>
+      <div class="res-grid">
+        <div class="res-card glass spot"><b><span data-count="200" data-prefix="" data-suffix="٪">۰</span></b><small>افزایش نرخ تبدیل (×۲)</small></div>
+        <div class="res-card glass spot"><b><span data-count="40" data-suffix="٪">۰</span></b><small>بهبود سرعت لود</small></div>
+        <div class="res-card glass spot"><b><span data-count="65" data-suffix="٪+">۰</span></b><small>زمان ماندگاری کاربر</small></div>
+        <div class="res-card glass spot"><b><span data-count="12" data-suffix="٪-">۰</span></b><small>کاهش رهاسازی سبد خرید</small></div>
+      </div>
+    </div>
+
+    <div class="pn-grid reveal">
+      <a class="pn-card glass spot" href="work-single.html">
+        <i class="ri-arrow-right-line"></i>
+        <div><small>پروژه‌ی قبلی</small><b>داشبورد تحلیلی سِنسا</b></div>
+      </a>
+      <a class="pn-card glass spot" href="work-single.html" style="justify-content:flex-end;text-align:left">
+        <div><small>پروژه‌ی بعدی</small><b>لندینگ محصول ابریک</b></div>
+        <i class="ri-arrow-left-line"></i>
+      </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>حال که مرا می‌شناسید…<br>بیایید با هم <span class="outline-w">بسازیم</span></h2>
+      <a href="index.html#contact" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="index.html#services">توسعه فرانت‌اند</a></li>
+          <li><a href="index.html#services">طراحی رابط کاربری</a></li>
+          <li><a href="index.html#services">موشن و انیمیشن</a></li>
+          <li><a href="index.html#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="index.html#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

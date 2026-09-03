@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0}
+.b-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.post{border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s,opacity .35s}
+.post:hover{transform:translateY(-9px);box-shadow:var(--sh-lg)}
+.post.hide{display:none}
+.post-media{position:relative;overflow:hidden;flex:none;aspect-ratio:16/9.5}
+.post-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.post:hover .post-media img{transform:scale(1.07)}
+.badge-g{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy);font-size:12.5px;font-weight:800;padding:5px 15px;border-radius:100px}
+.p-body{padding:24px 26px;display:flex;flex-direction:column;gap:9px;flex:1}
+.p-meta{display:flex;flex-wrap:wrap;gap:15px;font-size:12.5px;color:var(--text-2)}
+.p-meta i{color:var(--teal);margin-left:4px}
+.p-body h3{font-family:var(--fh);font-weight:800;font-size:17.5px;line-height:1.75;transition:color .3s}
+.post:hover h3{color:var(--teal)}
+.p-more{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--teal);margin-top:auto;padding-top:6px}
+.p-more i{transition:transform .35s var(--ease)}
+.post:hover .p-more i{transform:translateX(-6px)}
+.post.feat{grid-column:span 2;flex-direction:row}
+.post.feat .post-media{aspect-ratio:auto;width:46%}
+.post.feat .p-body{padding:32px 34px}
+.post.feat h3{font-size:clamp(1.1rem,2vw,1.4rem)}
+.nl-box{margin-top:60px;padding:clamp(30px,5vw,52px);border-radius:26px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.nl-box h3{font-family:var(--fh);font-weight:900;font-size:clamp(1.3rem,2.6vw,1.8rem)}
+.nl-box p{color:var(--text-2);font-size:14.5px}
+.nl-form{display:flex;gap:10px}
+.nl-form input{flex:1;font-family:var(--fb);font-size:14.5px;background:var(--bg);border:1.5px solid var(--border);border-radius:100px;padding:13px 20px;direction:ltr;text-align:left;transition:all .3s}
+.nl-form input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(32,178,170,.14)}
+@media(max-width:1080px){.b-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.b-grid{grid-template-columns:1fr}.post.feat{grid-column:span 1;flex-direction:column}.post.feat .post-media{width:100%;aspect-ratio:16/9}.nl-box{grid-template-columns:1fr}.nl-form{flex-direction:column}}
+</style>
+</head>
+<body class="locked">
+
+<div class="ld-a"></div>
+<div class="ld-m"><span class="ld-logo">ک</span></div>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link active">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="works.html"><small>۰۳</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۴</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۵</small> رزومه</a>
+  <a class="m-link" href="index.html#contact"><small>۰۶</small> تماس</a>
+  <div class="m-cta"><a href="index.html#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+<section class="ph" style="padding-bottom:40px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>وبلاگ</b></nav>
+    <h1 class="ph-title" data-split>یادداشت‌های یک <em>وب‌ساز</em></h1>
+    <p class="ph-desc">چیزهایی که یاد می‌گیرم، تجربه‌هایی که می‌گذرم و گاهی هم عقیده‌هایم درباره‌ی وب — ساده، رک و کاربردی.</p>
+    <div class="chips reveal">
+      <button class="f-btn active" data-filter="all">همه</button>
+      <button class="f-btn" data-filter="dev">توسعه وب</button>
+      <button class="f-btn" data-filter="js">جاوااسکریپت</button>
+      <button class="f-btn" data-filter="ux">تجربه کاربری</button>
+      <button class="f-btn" data-filter="design">طراحی</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="b-grid">
+      <a href="blog-single.html" class="post glass spot feat reveal" data-cat="dev" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 6.jpg" alt="آینده CSS"><span class="badge-g">پیشنهاد سردبیر</span></div>
+        <div class="p-body">
+          <div class="p-meta"><span><i class="ri-price-tag-3-line"></i>توسعه وب</span><span><i class="ri-calendar-line"></i>۱۲ آبان ۱۴۰۳</span><span><i class="ri-time-line"></i>۸ دقیقه</span></div>
+          <h3>آینده‌ی CSS؛ از Container Query تا :has()</h3>
+          <p>CSS دیگر آن زبان ساده‌ی استایل‌دهی نیست. نگاهی به امکاناتی که طرز فکر ما درباره‌ی کامپوننت‌ها را عوض کردند.</p>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span>
+        </div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" data-cat="ux" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 4.jpg" alt="اصول UX"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>تجربه کاربری</span><span><i class="ri-calendar-line"></i>۲۸ مهر</span></div>
+          <h3>۵ اصل UX که هر توسعه‌دهنده باید بلد باشد</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" style="--d:.08s" data-cat="js" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 7.jpg" alt="Async JS"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>جاوااسکریپت</span><span><i class="ri-calendar-line"></i>۱۰ مهر</span></div>
+          <h3>جاوااسکریپت غیرهمگام؛ از Callback تا Async/Await</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" style="--d:.16s" data-cat="design" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 3.png" alt="موشن"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>طراحی</span><span><i class="ri-calendar-line"></i>۲ مهر</span></div>
+          <h3>انیمیشن‌هایی که کاربر را عصبانی می‌کنند</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" data-cat="js" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 2.jpg" alt="پرفورمنس"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>توسعه وب</span><span><i class="ri-calendar-line"></i>۲۰ شهریور</span></div>
+          <h3>Core Web Vitals؛ راهنمای بقا برای فرانت‌اندها</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" style="--d:.08s" data-cat="design" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 5.jpg" alt="RTL"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>طراحی</span><span><i class="ri-calendar-line"></i>۵ شهریور</span></div>
+          <h3>طراحی راست‌به‌چپ؛ غفلت‌هایی که همه می‌بینیم</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+      <a href="blog-single.html" class="post glass spot reveal" style="--d:.16s" data-cat="ux" data-cursor="خواندن">
+        <div class="post-media"><img src="images/image 8.jpg" alt="Empty State"></div>
+        <div class="p-body"><div class="p-meta"><span><i class="ri-price-tag-3-line"></i>تجربه کاربری</span><span><i class="ri-calendar-line"></i>۲۸ مرداد</span></div>
+          <h3>هنرِ طراحی صفحاتِ خالی (Empty State)</h3>
+          <span class="p-more">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></span></div>
+      </a>
+    </div>
+
+    <div class="nl-box glass reveal">
+      <div>
+        <h3>از نوشته‌های بعدی جا نمانید ✦</h3>
+        <p>ماهی یک تا دو ایمیل؛ فقط وقتی چیز ارزشمندی برای گفتن داشته باشم. بدون اسپم، قول.</p>
+      </div>
+      <form class="nl-form" id="nlForm">
+        <input type="email" id="nlEmail" placeholder="you@example.com" aria-label="ایمیل">
+        <button type="submit" class="btn btn-primary magnetic">عضویت <i class="ri-mail-send-line"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>حال که مرا می‌شناسید…<br>بیایید با هم <span class="outline-w">بسازیم</span></h2>
+      <a href="index.html#contact" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="index.html#services">توسعه فرانت‌اند</a></li>
+          <li><a href="index.html#services">طراحی رابط کاربری</a></li>
+          <li><a href="index.html#services">موشن و انیمیشن</a></li>
+          <li><a href="index.html#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="index.html#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+ $$('.chips .f-btn').forEach(b=>b.addEventListener('click',()=>{
+ $$('.chips .f-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+const c=b.dataset.filter;
+ $$('.post').forEach(p=>p.classList.toggle('hide',!(c==='all'||p.dataset.cat===c)))}));
+ $('#nlForm').addEventListener('submit',e=>{e.preventDefault();
+const em=$('#nlEmail');
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){toast('لطفاً یک ایمیل معتبر وارد کنید.','error');return}
+toast('عضویت شما ثبت شد؛ خوش آمدید!');em.value=''});
+</script>
+</body>
+</html>

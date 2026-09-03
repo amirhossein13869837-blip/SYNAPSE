@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>۴۰۴ | صفحه پیدا نشد</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<style>
+:root{--navy:#123B4A;--navy-deep:#0C2B37;--teal:#20B2AA;--gold:#E8C547;--text-2:#52727C;--fh:'Estedad','Vazirmatn',sans-serif;--fb:'Vazirmatn','Estedad',sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--fb);background:var(--navy);color:#fff;min-height:100vh;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.err-wrap{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:40px 26px}
+#net404{position:absolute;inset:0;width:100%;height:100%}
+.err-inner{position:relative;z-index:2;max-width:560px}
+.err-logo{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:16px;background:var(--teal);color:#fff;font-family:var(--fh);font-weight:900;font-size:26px;margin-bottom:26px;animation:floatY 3s ease-in-out infinite}
+.err-num{font-family:var(--fh);font-weight:900;font-size:clamp(7rem,26vw,15rem);line-height:1;direction:ltr;color:transparent;-webkit-text-stroke:3px var(--gold)}
+@supports not (-webkit-text-stroke:1px #000){.err-num{color:var(--gold)}}
+.err-title{font-family:var(--fh);font-weight:900;font-size:clamp(1.4rem,4.5vw,2.1rem);margin:18px 0 12px;color:#fff}
+.err-sub{color:rgba(255,255,255,.65);font-size:15.5px;margin-bottom:38px;line-height:2.1}
+.err-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:100px;font-size:15px;font-weight:700;font-family:var(--fb);transition:all .35s var(--ease)}
+.btn i{transition:transform .35s var(--ease)}.btn:hover i{transform:translateX(-6px)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:#fff;transform:translateY(-3px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+.btn-ghost:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-3px)}
+</style>
+</head>
+<body>
+<div class="err-wrap">
+  <canvas id="net404" aria-hidden="true"></canvas>
+  <div class="err-inner">
+    <a href="index.html" class="err-logo" aria-label="بازگشت به خانه">ک</a>
+    <div class="err-num">404</div>
+    <h1 class="err-title">این صفحه بین نورون‌ها گم شد!</h1>
+    <p class="err-sub">نورونی که دنبالش بودید هنوز اتصالی ندارد — یا آدرسش عوض شده، یا هرگز وجود داشته. نگران نباشید؛ شبکه هنوز کار می‌کند.</p>
+    <div class="err-btns">
+      <a href="index.html" class="btn btn-gold">بازگشت به خانه <i class="ri-home-5-line"></i></a>
+      <a href="works.html" class="btn btn-ghost">نمونه‌کارها <i class="ri-briefcase-4-line"></i></a>
+      <a href="index.html#contact" class="btn btn-ghost">تماس با من <i class="ri-mail-line"></i></a>
+    </div>
+  </div>
+</div>
+<script>
+const cvs=document.querySelector('#net404'),ctx=cvs.getContext('2d');
+const host=cvs.parentElement;
+let W=0,H=0,ns=[],running=true,m={x:-1e4,y:-1e4},pt=0;
+function size(){const r=host.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,1.5);
+W=r.width;H=r.height;cvs.width=W*dpr;cvs.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+const n=Math.max(30,Math.min(320,Math.round(W*H/4200)));
+ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,
+vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,r:1+Math.random()*1.5,
+col:Math.random()<.4?'32,178,170':(Math.random()<.5?'255,255,255':'232,197,71')}))}
+function frame(now){
+if(!document.hidden){const dt=Math.min(2.5,(now-(pt||now))/16.7);pt=now;
+ctx.clearRect(0,0,W,H);ctx.lineWidth=1;
+for(const n of ns){n.x+=n.vx*dt;n.y+=n.vy*dt;
+if(n.x<-12)n.x=W+12;if(n.x>W+12)n.x=-12;if(n.y<-12)n.y=H+12;if(n.y>H+12)n.y=-12}
+const L=115;
+for(let i=0;i<ns.length;i++)for(let j=i+1;j<ns.length;j++){
+const a=ns[i],b=ns[j],dx=a.x-b.x,dy=a.y-b.y;if(dx>L||dx<-L||dy>L||dy<-L)continue;
+const d=Math.hypot(dx,dy);if(d>L)continue;
+const al=(1-d/L)*.22;
+ctx.strokeStyle=`rgba(${a.col},${al})`;
+ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+for(const n of ns){ctx.fillStyle=`rgba(${n.col},.85)`;
+ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,7);ctx.fill()}}
+requestAnimationFrame(frame)}
+size();addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(size,180)});
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

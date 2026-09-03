@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوالات متداول | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body.menu-open .m-link:nth-child(8){transition-delay:.44s}
+body.menu-open .m-link:nth-child(9){transition-delay:.49s}
+/* جستجو */
+.sr-box{position:relative;max-width:640px;margin-top:34px}
+.sr-box i{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:19px;color:var(--text-2);pointer-events:none;transition:color .3s}
+.sr-box input{width:100%;font-family:var(--fb);font-size:16px;color:var(--text);background:var(--glass);backdrop-filter:blur(12px);border:1.5px solid var(--border);border-radius:100px;padding:17px 54px 17px 24px;box-shadow:var(--sh-sm);transition:border-color .3s,box-shadow .3s}
+.sr-box input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(32,178,170,.14)}
+.sr-box input:focus ~ i{color:var(--teal)}
+.sr-clear{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(18,59,74,.08);color:var(--text-2);font-size:15px;display:none;align-items:center;justify-content:center}
+.sr-clear.show{display:flex}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.fq-btn{padding:10px 22px;border-radius:100px;border:1.5px solid var(--border);background:var(--glass);backdrop-filter:blur(8px);font-size:14.5px;font-weight:600;color:var(--text-2);transition:all .3s}
+.fq-btn:hover{border-color:var(--teal);color:var(--teal)}
+.fq-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+/* آکاردئون */
+.faq-groups{max-width:840px;margin:56px auto 0}
+.faq-group{margin-bottom:44px}
+.fg-title{display:flex;align-items:center;gap:13px;font-family:var(--fh);font-weight:900;font-size:clamp(1.2rem,2.6vw,1.6rem);margin-bottom:20px}
+.fg-title i{width:44px;height:44px;flex:none;border-radius:14px;background:var(--navy);color:var(--gold);font-size:19px;display:flex;align-items:center;justify-content:center}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 6px;text-align:right;font-family:var(--fh);font-weight:700;font-size:16.5px;transition:color .3s}
+.faq-q:hover{color:var(--teal)}
+.faq-q i{flex:none;width:38px;height:38px;border-radius:12px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--teal);transition:all .4s var(--ease)}
+.faq-item.open .faq-q{color:var(--teal)}
+.faq-item.open .faq-q i{transform:rotate(135deg);background:var(--teal);border-color:var(--teal);color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 52px 24px 6px;color:var(--text-2);font-size:15px}
+.faq-a p a{color:var(--teal);font-weight:700}
+.no-res{display:none;text-align:center;padding:60px 24px;border:2px dashed var(--border);border-radius:24px;margin-top:20px}
+.no-res.show{display:block}
+.no-res i{font-size:44px;color:var(--gold);display:block;margin-bottom:16px}
+.no-res b{font-family:var(--fh);font-weight:800;font-size:18px;display:block;margin-bottom:8px}
+.no-res p{color:var(--text-2);font-size:14.5px;margin-bottom:20px}
+.faq-count{font-size:13px;color:var(--text-2);margin-top:10px;min-height:20px}
+@media(max-width:640px){.faq-a p{padding-left:4px}}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="services.html"><small>۰۳</small> خدمات</a>
+  <a class="m-link" href="works.html"><small>۰۴</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۵</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۶</small> رزومه</a>
+  <a class="m-link" href="faq.html"><small>۰۷</small> سوالات متداول</a>
+  <a class="m-link" href="contact.html"><small>۰۸</small> تماس</a>
+  <div class="m-cta"><a href="contact.html" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<section class="ph" style="padding-bottom:40px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>سوالات متداول</b></nav>
+    <h1 class="ph-title" data-split>هرچه می‌خواستی <em>بپرسی</em></h1>
+    <p class="ph-desc">جوابِ بیش از ۹۰٪ سوال‌های رایج همین‌جاست. بنویس یا دسته را انتخاب کن؛ اگر چیزی پیدا نشد، خودم جواب می‌دهم.</p>
+    <div class="sr-box">
+      <input type="text" id="fqSearch" placeholder="دنبال چه چیزی می‌گردی؟ مثلاً: قیمت، پرداخت، پشتیبانی…">
+      <button class="sr-clear" id="fqClear" aria-label="پاک کردن"><i class="ri-close-line"></i></button>
+      <i class="ri-search-line"></i>
+    </div>
+    <div class="chips">
+      <button class="fq-btn active" data-fcat="all">همه</button>
+      <button class="fq-btn" data-fcat="start">شروع همکاری</button>
+      <button class="fq-btn" data-fcat="price">قیمت و پرداخت</button>
+      <button class="fq-btn" data-fcat="time">زمان‌بندی و تحویل</button>
+      <button class="fq-btn" data-fcat="tech">پشتیبانی و فنی</button>
+    </div>
+    <div class="faq-count" id="fqCount"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="faq-groups">
+
+      <div class="faq-group" data-gcat="start">
+        <h3 class="fg-title"><i class="ri-hand-heart-line"></i>شروع همکاری</h3>
+        <div class="faq-item" data-cat="start">
+          <button class="faq-q"><span>چطور همکاری را شروع کنیم؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>فقط یک پیام کافی است! از <a href="contact.html">صفحه‌ی تماس</a> فرم را پر کن؛ حداکثر ۲۴ ساعت بعد، یک جلسه‌ی شناختِ رایگان (۳۰ تا ۴۵ دقیقه، آنلاین یا حضوری در تهران) می‌گذاریم تا هدف، مخاطب و دامنه‌ی پروژه روشن شود.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="start">
+          <button class="faq-q"><span>آیا قبل از شروع، قرارداد امضا می‌شود؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>بله؛ برای خیالِ راحت هر دو طرف، همه‌چیز مکتوب می‌شود: دامنه‌ی کار، زمان‌بندی، مراحل پرداخت و شرایط پشتیبانی. قرارداد ساده و خوانا است؛ نه ده صفحه‌ی حقوقی گیج‌کننده.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="start">
+          <button class="faq-q"><span>چه اطلاعاتی باید برای شروع آماده کنم؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>هرچقدر بهتر بدانی، بهتر می‌سازیم: هدف سایت یا محصول، مخاطب هدف، نمونه‌های موردعلاقه (و ناپسند!)، محتوای آماده مثل لوگو و متن‌ها. اگر هیچ‌کدام را نداری، نگران نباش — در جلسه‌ی اول با هم درمی‌آوریم.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="start">
+          <button class="faq-q"><span>نمونه‌کار و رزومه‌ی بیشتری برای دیدن دارید؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>بله؛ صفحه‌ی <a href="works.html">نمونه‌کارها</a> داستان کامل ۸ پروژه‌ی منتخب را دارد و <a href="resume.html">رزومه‌ی آنلاین</a> هم سوابق، مهارت‌ها و مدارک را مرور می‌کند. برای پروژه‌های خاص (مثلاً حوزه‌ی مالی)، در جلسه‌ی اول نمونه‌های مرتبط نشان می‌دهم.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-gcat="price">
+        <h3 class="fg-title"><i class="ri-coins-line"></i>قیمت و پرداخت</h3>
+        <div class="faq-item" data-cat="price">
+          <button class="faq-q"><span>هزینه‌ها چطور محاسبه می‌شود؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>پروژه‌ای و ثابت، نه ساعتی — یعنی قبل از شروع دقیقاً می‌دانی چقدر می‌پردازی. قیمت بر اساس دامنه‌ی کار (تعداد صفحه، پیچیدگی، پنل مدیریت و…) تعیین می‌شود. بازه‌های شروع را در <a href="services.html">صفحه‌ی خدمات</a> ببین.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="price">
+          <button class="faq-q"><span>امکان پرداخت مرحله‌ای وجود دارد؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>بله، روش پیش‌فرض من همین است: ۴۰٪ در شروع، ۳۰٪ در تأیید طراحی و ۳۰٪ در تحویل نهایی. برای پروژه‌های بزرگ‌تر، تقسیم‌بندی منعطف‌تری هم صحبت می‌کنیم.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="price">
+          <button class="faq-q"><span>آیا قیمت‌ها قابل مذاکره‌اند؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>قیمت با دامنه‌ی کار مذاکره می‌شود، نه با تخفیفِ کتمان‌شده. اگر بودجه محدود است، صادقانه بگو؛ معمولاً با کم‌کردن دامنه (مثلاً حذف یک بخش در فاز اول) می‌شود به عدد مشترک رسید. کیفیت را هرگز قربانی قیمت نمی‌کنم.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="price">
+          <button class="faq-q"><span>هزینه‌ی پنهانی بعداً اضافه می‌شود؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>هرگز. هر چیزی که در قرارداد نیست، هزینه‌ی من نیست. اگر وسط پروژه چیزی جدید خواستی که خارج از دامنه باشد، اول برآورد و قیمتش را می‌دهم و فقط با تأیید خودت شروع می‌شود.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-gcat="time">
+        <h3 class="fg-title"><i class="ri-time-line"></i>زمان‌بندی و تحویل</h3>
+        <div class="faq-item" data-cat="time">
+          <button class="faq-q"><span>پروژه‌ها چقدر طول می‌کشند؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>لندینگ‌های کوچک: ۲ تا ۳ هفته. وب‌سایت‌های کامل: ۴ تا ۸ هفته. بسته به حجم، پاسخ‌گویی تیم شما (محتوا و بازخوردها) و پیچیدگی دارد — زمان‌بندی دقیق، مکتوب و بخشی از قرارداد است.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="time">
+          <button class="faq-q"><span>اگر پروژه دیرتر از موعد تحویل شود چه؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>تعهد زمانی در قرارداد آمده و به آن پایبندم؛ سال‌هاست نرخ تحویل به‌موقع‌ام بالای ۹۵٪ است. اگر تأخیری از سمت من بود، راه‌حل جبرانی (مثل افزودن بخش رایگان) روی میز می‌آید. البته تأخیرِ محتوا از سمت کارفرما، زمان‌بندی را عقب می‌اندازد — این را هم از اول شفاف می‌کنیم.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="time">
+          <button class="faq-q"><span>در طول پروژه از روند کار چه خبری دارم؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>هفته‌ای یک آپدیت خلاصه + لینک پیش‌نمایش زنده‌ی نسخه‌ی در حال ساخت. یعنی هر لحظه می‌توانی پروژه را با چشم خودت ببینی، نه اینکه ۶ هفته در تاریکی منتظر بمانی و بعد غافلگیر شوی.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="time">
+          <button class="faq-q"><span>جلسات حضوری هم دارید یا فقط آنلاین؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>در تهران حضوری (قهوه مهمان من!) و برای شهرهای دیگر کاملاً آنلاین با تماس تصویری و اشتراک صفحه. بیشتر پروژه‌هایم حتی با مشتریان تهرانی هم ترکیبی انجام شده — جوری که برای راحتی خودت تنظیم می‌کنیم.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-gcat="tech">
+        <h3 class="fg-title"><i class="ri-tools-line"></i>پشتیبانی و فنی</h3>
+        <div class="faq-item" data-cat="tech">
+          <button class="faq-q"><span>بعد از تحویل، پشتیبانی چگونه است؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>هر پروژه یک ماه پشتیبانی رایگان دارد: رفع باگ، سوال‌های «این دکمه کجاست؟» و آموزش بیشتر. بعد از آن، قرارداد نگهداری ماهانه (بر اساس حجم کار، معمولاً بین ۲ تا ۵ میلیون تومان در ماه) اختیاری است.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="tech">
+          <button class="faq-q"><span>اگر بعداً بخواهم بخشی را تغییر بدهم؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>کدها تمیز و مستند تحویل داده می‌شوند، پس تغییرات بعدی سریع و ارزان‌اند. تغییرات کوچک (متن، رنگ، عکس) را خودت از پنل انجام می‌دهی؛ تغییرات بزرگ‌تر یا پروژه‌ای جداگاره یا با قرارداد نگهداری پوشش داده می‌شود.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="tech">
+          <button class="faq-q"><span>با چه تکنولوژی‌هایی کار می‌کنید؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>بسته به پروژه: Next.js و React برای اپ‌های پیچیده، HTML/CSS/JS خالص برای سایت‌های سبک و سریع، و GSAP برای موشن‌های سنگین. انتخاب استک بخشی از پیشنهاد فنی است و با دلیل — نه سلیقه‌ی کور — انجام می‌شود.</p></div></div>
+        </div>
+        <div class="faq-item" data-cat="tech">
+          <button class="faq-q"><span>خودم می‌توانم محتوای سایت را مدیریت کنم؟</span><i class="ri-add-line"></i></button>
+          <div class="faq-a"><div><p>بله! در پکیج‌های وب‌سایت، پنل مدیریت اختصاصی (یا WordPress در صورت درخواست) تحویل می‌شود که بدون یک خط کدنویسی، متن و عکس و محصول اضافه کنی. جلسه‌ی آموزش هم بخشی از تحویل است و ویدیوی راهنما هم می‌گیری.</p></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="no-res" id="noRes">
+      <i class="ri-search-eye-line"></i>
+      <b>چیزی پیدا نشد!</b>
+      <p>شاید سوالت کمی خاص‌تر از بقیه است — اتفاقاً این یعنی یک گفت‌وگوی خوب در انتظار ماست.</p>
+      <a href="contact.html" class="btn btn-primary magnetic">مستقیم از من بپرس <i class="ri-question-answer-line"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>جوابت اینجا نبود؟<br>خودم <span class="outline-w">جواب می‌دهم</span></h2>
+      <a href="contact.html" class="btn btn-gold magnetic">ارسال سوال <i class="ri-question-answer-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="services.html">توسعه فرانت‌اند</a></li>
+          <li><a href="services.html">طراحی رابط کاربری</a></li>
+          <li><a href="services.html">موشن و انیمیشن</a></li>
+          <li><a href="services.html">بهینه‌سازی و سرعت</a></li>
+          <li><a href="services.html">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+/* جستجو + فیلتر دسته + آکاردئون — همه با هم کار می‌کنند */
+(function(){
+  const inp = document.getElementById('fqSearch');
+  const clr = document.getElementById('fqClear');
+  const cnt = document.getElementById('fqCount');
+  const noRes = document.getElementById('noRes');
+  let cat = 'all', q = '';
+
+  function apply(){
+    let visible = 0;
+    document.querySelectorAll('.faq-item').forEach(it => {
+      const okCat = cat === 'all' || it.dataset.cat === cat;
+      const okQ = !q || (it.textContent || '').indexOf(q) !== -1;
+      const show = okCat && okQ;
+      it.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.querySelectorAll('.faq-group').forEach(g => {
+      const any = Array.from(g.querySelectorAll('.faq-item')).some(i => i.style.display !== 'none');
+      g.style.display = any ? '' : 'none';
+    });
+    noRes.classList.toggle('show', visible === 0);
+    cnt.textContent = visible
+      ? toFa(visible) + ' سوال پیدا شد' + (q ? ' برای «' + q + '»' : '')
+      : '';
+    clr.classList.toggle('show', !!q);
+  }
+
+  inp.addEventListener('input', () => { q = inp.value.trim(); apply(); });
+  clr.addEventListener('click', () => { inp.value = ''; q = ''; apply(); inp.focus(); });
+
+  document.querySelectorAll('.fq-btn').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.fq-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    cat = b.dataset.fcat;
+    apply();
+  }));
+
+  /* آکاردئون */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const was = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!was) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>

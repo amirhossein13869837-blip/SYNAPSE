@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظرات مشتریان | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body.menu-open .m-link:nth-child(8){transition-delay:.44s}
+body.menu-open .m-link:nth-child(9){transition-delay:.49s}
+/* فیلتر و جستجو */
+.t-filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;align-items:center}
+.fq-btn{padding:10px 22px;border-radius:100px;border:1.5px solid var(--border);background:var(--glass);backdrop-filter:blur(8px);font-size:14.5px;font-weight:600;color:var(--text-2);transition:all .3s}
+.fq-btn:hover{border-color:var(--teal);color:var(--teal)}
+.fq-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+html.dk .fq-btn.active{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+/* گريد نظرات */
+.tsm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.tsm{position:relative;padding:28px 26px;border-radius:24px;display:flex;flex-direction:column;gap:16px;transition:transform .5s var(--ease),box-shadow .5s,opacity .35s}
+.tsm:hover{transform:translateY(-8px);box-shadow:var(--sh-lg)}
+.tsm.hide{display:none}
+.tsm-quote{position:absolute;top:18px;left:20px;font-size:44px;color:rgba(var(--teal-rgb),.18);line-height:1;pointer-events:none}
+.tsm-stars{color:var(--gold);display:flex;gap:2px;font-size:14px}
+.tsm-text{font-size:14.5px;color:var(--text-2);line-height:2.1}
+.tsm-person{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--border)}
+.tsm-person img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2.5px solid var(--teal)}
+.tsm-person b{font-family:var(--fh);font-weight:800;font-size:15px;display:block}
+.tsm-person small{font-size:12.5px;color:var(--text-2)}
+.tsm-tag{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px;background:rgba(var(--teal-rgb),.1);color:var(--teal)}
+.tsm-tag i{font-size:13px}
+/* نوار امتیاز کلی */
+.tsm-overall{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(26px,4vw,44px);border-radius:26px;margin-top:8px}
+.tsm-big{text-align:center}
+.tsm-big b{font-family:var(--fh);font-weight:900;font-size:clamp(3.4rem,7vw,5rem);color:var(--teal);line-height:1.2;display:block}
+.tsm-big small{font-size:13.5px;color:var(--text-2)}
+.tsm-big .tsm-stars{justify-content:center;margin-top:8px;font-size:17px}
+.tsm-bars{display:grid;gap:10px}
+.tb-row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;font-size:13px;color:var(--text-2)}
+.tb-row b{font-family:var(--fh);font-weight:800;color:var(--text);min-width:24px}
+.tb-track{height:8px;background:rgba(var(--navy-rgb),.08);border-radius:100px;overflow:hidden}
+html.dk .tb-track{background:rgba(255,255,255,.07)}
+.tb-fill{height:100%;background:var(--teal);border-radius:100px;width:0;transition:width 1.4s var(--ease)}
+.tb-row span{min-width:34px;font-weight:700;color:var(--teal)}
+.tsm-count{text-align:center}
+.tsm-count b{font-family:var(--fh);font-weight:900;font-size:clamp(1.8rem,3.5vw,2.6rem);display:block;color:var(--text)}
+.tsm-count small{font-size:13px;color:var(--text-2)}
+.tb-fill{display:block;height:100%;background:var(--teal);border-radius:100px;width:0;transition:width 1.4s var(--ease)}
+@media(max-width:1080px){.tsm-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:899px){.tsm-overall{grid-template-columns:1fr;text-align:center}.tsm-bars{text-align:right}}
+@media(max-width:640px){.tsm-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="services.html"><small>۰۳</small> خدمات</a>
+  <a class="m-link" href="works.html"><small>۰۴</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۵</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۶</small> رزومه</a>
+  <a class="m-link" href="faq.html"><small>۰۷</small> سوالات متداول</a>
+  <a class="m-link" href="contact.html"><small>۰۸</small> تماس</a>
+  <div class="m-cta"><a href="contact.html" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<section class="ph">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>نظرات مشتریان</b></nav>
+    <h1 class="ph-title" data-split>حرف‌های <em>مشتریان</em></h1>
+    <p class="ph-desc">این‌جا هیچ «نظر ساختگی» نداریم؛ همه‌ی این جمله‌ها از پروژه‌های واقعی آمده‌اند — با اسم و شغلِ صاحبان‌شان.</p>
+    <div class="t-filters reveal">
+      <button class="fq-btn active" data-tcat="all">همه</button>
+      <button class="fq-btn" data-tcat="shop">فروشگاهی</button>
+      <button class="fq-btn" data-tcat="corp">شرکتی</button>
+      <button class="fq-btn" data-tcat="startup">استارتاپ</button>
+      <button class="fq-btn" data-tcat="app">اپلیکیشن</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:30px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <!-- نوار امتیاز کلی -->
+    <div class="tsm-overall glass spot reveal">
+      <div class="tsm-big">
+        <b>۴.۸</b>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i></div>
+        <small>میانگین از ۸۵+ مشتری</small>
+      </div>
+      <div class="tsm-bars">
+        <div class="tb-row"><b>۵★</b><div class="tb-track"><i class="tb-fill" data-w="78"></i></div><span>۷۸٪</span></div>
+        <div class="tb-row"><b>۴★</b><div class="tb-track"><i class="tb-fill" data-w="16"></i></div><span>۱۶٪</span></div>
+        <div class="tb-row"><b>۳★</b><div class="tb-track"><i class="tb-fill" data-w="4"></i></div><span>۴٪</span></div>
+        <div class="tb-row"><b>۲★</b><div class="tb-track"><i class="tb-fill" data-w="1"></i></div><span>۱٪</span></div>
+        <div class="tb-row"><b>۱★</b><div class="tb-track"><i class="tb-fill" data-w="1"></i></div><span>۱٪</span></div>
+      </div>
+      <div class="tsm-count">
+        <b>۱۲۰+</b>
+        <small>پروژه‌ی ثبت‌شده<br>در ۵ سال گذشته</small>
+      </div>
+    </div>
+
+    <!-- گرید نظرات -->
+    <div class="tsm-grid">
+      <article class="tsm glass spot reveal" data-cat="shop">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">فروشگاه ما بعد از بازطراحی کامیار تقریباً دو برابر شد. به‌جز ظاهر زیبا، سرعت و تجربه‌ی کاربری واقعاً زمین تا آسمان فرق کرد. سبد خریدی که قبلاً با هر رفرش خالی می‌شد، حالا در همه‌ی دستگاه‌ها زنده می‌ماند.</p>
+        <div class="tsm-person">
+          <img src="images/image 9.jpg" alt="رضا کریمی">
+          <div><b>رضا کریمی</b><small>بنیان‌گذار فروشگاه مدرن‌شاپ</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-shopping-bag-3-line"></i>پروژه‌ی فروشگاهی</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.08s" data-cat="startup">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">همکاری با کامیار یکی از بهترین تصمیم‌های تیم ما بود؛ دقیق، خلاق و فوق‌العاده منظم. پروژه را زودتر از موعد و با کیفیتی بالاتر از انتظار تحویل داد. جلسات هفتگی و پیش‌نمایش زنده یعنی هیچ‌وقت در تاریکی نبودیم.</p>
+        <div class="tsm-person">
+          <img src="images/image 10.jpg" alt="سارا محمدی">
+          <div><b>سارا محمدی</b><small>مدیر محصول، استارتاپ دِی</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-rocket-2-line"></i>پروژه‌ی استارتاپی</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.16s" data-cat="corp">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">صبر، خلاقیت و تعهد؛ این سه کلمه توصیف کامیار است. هر بار که فکر می‌کردیم به بن‌بست رسیده‌ایم، او با یک ایده‌ی تازه راه را باز می‌کرد. و این‌که هزینه‌ها را از اول شفاف گفت، برای هلدینگ ما طلا می‌ارزید.</p>
+        <div class="tsm-person">
+          <img src="images/image 11.jpg" alt="نگار احمدی">
+          <div><b>نگار احمدی</b><small>مدیر بازاریابی، هلدینگ آریا</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-building-2-line"></i>پروژه‌ی شرکتی</span>
+      </article>
+
+      <article class="tsm glass spot reveal" data-cat="startup">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">چند سال است پروژه‌های فرانت‌اند شرکت را به کامیار می‌سپاریم. کدهایش تمیز، مستندسازی‌اش عالی و ارتباطش همیشه شفاف و صادقانه است. اونجایی که مهارتش کافی نبود هم صادقانه گفت — همین صداقت برای ما ارزشمندتر از هر رزومه‌ای بود.</p>
+        <div class="tsm-person">
+          <img src="images/image 12.jpg" alt="محمد تهرانی">
+          <div><b>محمد تهرانی</b><small>مدیر فنی، تیم داده</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-rocket-2-line"></i>همکاری بلندمدت</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.08s" data-cat="shop">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i></div>
+        <p class="tsm-text">برای دفعه‌ی اول بود به یک فریلنسر پنل مدیریت دادیم و نگران بودیم. اما جلسه‌ی آموزشی بعد از تحویل و ویدیوی راهنما باعث شد کل تیم فقط در یک هفته با سیستم راحت بشن. حمایت بعد از تحویل واقعاً فرق داشت.</p>
+        <div class="tsm-person">
+          <img src="images/image 13.jpg" alt="الهام رستمی">
+          <div><b>الهام رستمی</b><small>مدیر عملیات، فروشگاه دانا</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-shopping-bag-3-line"></i>پروژه‌ی فروشگاهی</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.16s" data-cat="app">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">اپ بانکی ما با کاربران مسن مشکل داشت؛ کامیار طراحی را با تمرکز کامل بر دسترس‌پذیری بازنویسی کرد. الان مادرِ ۶۵ ساله‌ی من بدون کمک کسی پیامک‌هایش را چک می‌کند — این موفقیت‌ترین پروژه‌ی عمرم بوده.</p>
+        <div class="tsm-person">
+          <img src="images/image 9.jpg" alt="علی نادری">
+          <div><b>علی نادری</b><small>مدیر محصول، پی‌بانک</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-smartphone-line"></i>پروژه‌ی اپلیکیشن</span>
+      </article>
+
+      <article class="tsm glass spot reveal" data-cat="corp">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">دیزاین‌سیستمی که برای تیم ۲۰ نفره‌ی ما ساخت، سرعت توسعه را دو برابر کرد. قبلش هر کامپوننت از سلیقه‌ی یک نفر می‌آمد؛ الان همه یک زبان مشترک داریم و بحث‌های بی‌پایانِ «کدوم آبی؟» برای همیشه تمام شد.</p>
+        <div class="tsm-person">
+          <img src="images/image 10.jpg" alt="شیوا کرمانی">
+          <div><b>شیوا کرمانی</b><small>مدیر طراحی، کاوان</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-building-2-line"></i>دیزاین‌سیستم</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.08s" data-cat="startup">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">کمپین تعاملی «نور» برای آلبوم ما ساخته شد و در هفته‌ی اول، ۴۰ هزار بازدید ارگانیک آورد. هنوز هم وقتی کسی اسم پروژه را می‌شنود، اول از خودِ وب‌سایت تعریف می‌کند نه آهنگ‌ها — این یعنی طراحیِ خوب.</p>
+        <div class="tsm-person">
+          <img src="images/image 11.jpg" alt="آرمان صالحی">
+          <div><b>آرمان صالحی</b><small>تهیه‌کننده‌ی موسیقی مستقل</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-magic-line"></i>کمپین تعاملی</span>
+      </article>
+
+      <article class="tsm glass spot reveal" style="--d:.16s" data-cat="app">
+        <span class="tsm-quote"><i class="ri-double-quotes-r"></i></span>
+        <div class="tsm-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p class="tsm-text">به‌عنوان فاندری که خودش تکنیکال نیست، بزرگ‌ترین ترسم گم‌شدن بین اصطلاحات فنی بود. کامیار هر مرحله را با زبان آدمیزاد توضیح داد و هیچ سوال «خنده‌دار»ی بی‌جواب نماند. تحویل هم دقیقاً سر موعد.</p>
+        <div class="tsm-person">
+          <img src="images/image 12.jpg" alt="هدی عابدی">
+          <div><b>هدی عابدی</b><small>هم‌بنیان‌گذار، سِنسا</small></div>
+        </div>
+        <span class="tsm-tag"><i class="ri-smartphone-line"></i>پروژه‌ی اپلیکیشن</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>دوست داری اسمت<br>همین‌جا <span class="outline-w">درج بشه؟</span></h2>
+      <a href="contact.html" class="btn btn-gold magnetic">شروع پروژه‌ی بعدی <i class="ri-arrow-left-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="services.html">توسعه فرانت‌اند</a></li>
+          <li><a href="services.html">طراحی رابط کاربری</a></li>
+          <li><a href="services.html">موشن و انیمیشن</a></li>
+          <li><a href="services.html">بهینه‌سازی و سرعت</a></li>
+          <li><a href="services.html">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+/* فیلتر نظرات + انیمیشن نوارهای امتیاز */
+(function(){
+  document.querySelectorAll('.fq-btn').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.fq-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const c = b.dataset.tcat;
+    document.querySelectorAll('.tsm').forEach(t =>
+      t.classList.toggle('hide', !(c === 'all' || t.dataset.cat === c)));
+  }));
+
+  const bio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.style.width = e.target.dataset.w + '%';
+    bio.unobserve(e.target);
+  }), { threshold: .4 });
+  document.querySelectorAll('.tb-fill').forEach(el => bio.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حریم خصوصی و قوانین | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body.menu-open .m-link:nth-child(8){transition-delay:.44s}
+body.menu-open .m-link:nth-child(9){transition-delay:.49s}
+.pv-wrap{max-width:860px;margin:0 auto}
+.pv-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin-top:18px;font-size:13.5px;color:var(--text-2)}
+.pv-meta span{display:inline-flex;align-items:center;gap:7px}
+.pv-meta i{color:var(--teal);font-size:15px}
+.pv-body{margin-top:44px}
+.pv-body h2{font-family:var(--fh);font-weight:900;font-size:clamp(1.4rem,3.2vw,2rem);margin:46px 0 16px;display:flex;align-items:center;gap:14px}
+.pv-body h2 i{width:46px;height:46px;flex:none;border-radius:14px;background:var(--navy);color:var(--gold);font-size:19px;display:flex;align-items:center;justify-content:center}
+.pv-body p{color:var(--text-2);margin-bottom:16px}
+.pv-body p strong{color:var(--text)}
+.pv-body ul{margin:0 0 18px;display:grid;gap:11px}
+.pv-body ul li{display:flex;gap:12px;color:var(--text-2);font-size:15px}
+.pv-body ul li i{color:var(--teal);font-size:17px;flex:none;margin-top:5px}
+.pv-note{display:flex;gap:15px;padding:22px 26px;border-radius:18px;background:rgba(var(--teal-rgb),.08);border:1.5px dashed rgba(var(--teal-rgb),.4);margin:28px 0}
+.pv-note i{font-size:22px;color:var(--teal);flex:none;margin-top:4px}
+.pv-note p{margin:0;font-size:14.5px;color:var(--text)}
+.pv-gold{display:flex;gap:15px;padding:22px 26px;border-radius:18px;background:rgba(232,197,71,.12);border:1.5px dashed rgba(201,162,39,.5);margin:28px 0}
+.pv-gold i{font-size:22px;color:var(--gold);flex:none;margin-top:4px}
+.pv-gold p{margin:0;font-size:14.5px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="services.html"><small>۰۳</small> خدمات</a>
+  <a class="m-link" href="works.html"><small>۰۴</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۵</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۶</small> رزومه</a>
+  <a class="m-link" href="faq.html"><small>۰۷</small> سوالات متداول</a>
+  <a class="m-link" href="contact.html"><small>۰۸</small> تماس</a>
+  <div class="m-cta"><a href="contact.html" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<section class="ph">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="pv-wrap">
+      <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>حریم خصوصی</b></nav>
+      <h1 class="ph-title" data-split>حریم خصوصی و <em>قوانین</em></h1>
+      <p class="ph-desc">این صفحه را با زبان آدمیزاد نوشتم، نه زبان وکلا؛ چون معتقدم تو باید دقیقاً بدانی با اطلاعات‌ات چه می‌کنم.</p>
+      <div class="pv-meta reveal">
+        <span><i class="ri-calendar-line"></i> آخرین به‌روزرسانی: آذر ۱۴۰۳</span>
+        <span><i class="ri-time-line"></i> زمان مطالعه: ۴ دقیقه</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:10px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="pv-wrap">
+      <div class="pv-body reveal">
+        <h2><i class="ri-shield-check-line"></i>چه اطلاعاتی جمع می‌کنم؟</h2>
+        <p>فقط چیزهایی که خودت داوطلبانه به من می‌دهی:</p>
+        <ul>
+          <li><i class="ri-check-line"></i><strong>فرم تماس:</strong> نام، ایمیل، شماره تماس (اگر وارد کنی) و متن پیامت — فقط برای پاسخ‌دادن به همان پیام.</li>
+          <li><i class="ri-check-line"></i><strong>خبرنامه (در صورت عضویت):</strong> فقط ایمیل تو.</li>
+          <li><i class="ri-check-line"></i><strong>نظرسنجی صفحه‌ی تشکر:</strong> امتیاز و متنی که خودت بنویسی.</li>
+        </ul>
+        <p>نکته‌ی مهم: این سایت <strong>ابزار آنالیتیکس ردیاب، کوکی تبلیغاتی یا اسکریپت شبکه‌های اجتماعی در صفحه</strong> ندارد. هیچ سرویس ثالثی رفتارت را دنبال نمی‌کند.</p>
+
+        <h2><i class="ri-cookie-line"></i>ذخیره‌سازی محلی (localStorage) چه‌کار می‌کند؟</h2>
+        <p>چند تنظیمِ کوچک برای تجربه‌ی بهتر، فقط روی مرورگرِ خودت ذخیره می‌شود و <strong>هیچ‌وقت به سرور یا شخص دیگری ارسال نمی‌شود:</strong></p>
+        <ul>
+          <li><i class="ri-palette-line"></i>تم رنگی انتخابی‌ات (تا صفحات بعدی هم‌رنگ بمانند)</li>
+          <li><i class="ri-survey-line"></i>بازخوردی که در نظرسنجی ثبت می‌کنی (برای نمایش خودت)</li>
+          <li><i class="ri-checkbox-circle-line"></i>نشان «بار اول بودن یا نبودن» برای مدیریت نمایش لودر</li>
+        </ul>
+        <p>این‌ها با پاک‌کردن داده‌ی مرورگر به‌کلی حذف می‌شوند و من به آن‌ها دسترسی ندارم.</p>
+
+        <h2><i class="ri-mail-lock-line"></i>با پیام‌های شما چه می‌کنم؟</h2>
+        <ul>
+          <li>پیام‌ها فقط برای پاسخ‌دادن و پیگیری همان گفت‌وگو استفاده می‌شوند.</li>
+          <li>ایمیل تو را در هیچ لیست تبلیغاتی قرار نمی‌دهم؛ خبرنامه هم فقط با ثبتِ خودت فعال می‌شود و خروجش هم با یک کلیک است.</li>
+          <li>پیام‌ها حداکثر تا ۱۲ ماه پس از پایان گفت‌وگو نگه داشته و بعد حذف می‌شوند.</li>
+          <li>هیچ اطلاعاتی از تو را به شخص یا سرویس دیگری نمی‌فروشم، نمی‌دهم و به اشتراک نمی‌گذارم. نه رایگان، نه پولی.</li>
+        </ul>
+
+        <div class="pv-note"><i class="ri-information-line"></i><p><strong>یک صداقت فنی:</strong> این نسخه‌ی نمایشی است و پیام فرم‌ها به بک‌اند واقعی وصل نیست؛ در نسخه‌ی نهایی، ارسال از طریق سرویس ایمیل امن انجام می‌شود و این صفحه به‌روز می‌گردد.</p></div>
+
+        <h2><i class="ri-mic-off-line"></i>حقوق شما</h2>
+        <ul>
+          <li><i class="ri-check-line"></i>می‌توانی بپرسی چه اطلاعاتی از تو دارم و نسخه‌ای از آن‌ها بخواهی.</li>
+          <li><i class="ri-check-line"></i>می‌توانی حذف کامل اطلاعات‌ات را بخواهی — بدون سوال اضافه، حداکثر تا ۴۸ ساعت.</li>
+          <li><i class="ri-check-line"></i>می‌توانی عضویت خبرنامه را هر زمان لغو کنی.</li>
+        </ul>
+
+        <h2><i class="ri-briefcase-4-line"></i>قوانین همکاری حرفه‌ای</h2>
+        <p>این‌ها چکیده‌ی قوانینی است که در قرارداد پروژه‌ها به‌صورت کامل می‌آیند:</p>
+        <ul>
+          <li><i class="ri-file-list-3-line"></i>مالکیت کد و طراحی نهایی، پس از تسویه‌ی کامل، به کارفرما منتقل می‌شود.</li>
+          <li><i class="ri-eye-off-line"></i>اطلاعات کسب‌وکارِ پروژه‌های مشتری محرمانه است و در نمونه‌کارها فقط با اجازه‌ی قبلیِ مکتوب نمایش داده می‌شود.</li>
+          <li><i class="ri-refund-2-line"></i>اگر پروژه پیش از ۳۰٪ پیشرفت به هر دلیلی متوقف شود، پیش‌پرداخت به‌جز هزینه‌ی زمانِ سپری‌شده بازگردانده می‌شود.</li>
+          <li><i class="ri-tools-line"></i>پشتیبانی رایگان ۳۰ روزه فقط شامل رفع ایرادات کد است؛ تغییرات جدید خارج از دامنه، پروژه‌ی جداگانه محسوب می‌شود.</li>
+        </ul>
+
+        <div class="pv-gold"><i class="ri-question-answer-line"></i><p><strong>سوالی درباره‌ی همین صفحه داری؟</strong> رک و مستقیم از من بپرس؛ معمولاً در کمتر از ۲۴ ساعت جواب می‌دهم — <a href="contact.html" style="color:var(--teal);font-weight:700">از این‌جا</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>شفافیت، اولین قدمِ<br>یک <span class="outline-w">اعتماد واقعی</span></h2>
+      <a href="contact.html" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="services.html">توسعه فرانت‌اند</a></li>
+          <li><a href="services.html">طراحی رابط کاربری</a></li>
+          <li><a href="services.html">موشن و انیمیشن</a></li>
+          <li><a href="services.html">بهینه‌سازی و سرعت</a></li>
+          <li><a href="services.html">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

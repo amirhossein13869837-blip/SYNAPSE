@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0}
+.f-btn{padding:10px 22px;border-radius:100px;border:1.5px solid var(--border);background:var(--glass);backdrop-filter:blur(8px);font-size:14.5px;font-weight:600;color:var(--text-2);transition:all .3s}
+.f-btn:hover{border-color:var(--teal);color:var(--teal)}
+.f-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.works-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px;grid-auto-flow:dense}
+.work{grid-column:span 3;transition:opacity .4s,transform .4s var(--ease)}
+.work.wl{grid-column:span 4}.work.ws{grid-column:span 2}
+.work.hide{opacity:0;transform:scale(.92) translateY(12px)}
+.w-media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/11;background:var(--navy);display:block}
+.wl .w-media{aspect-ratio:16/10}.ws .w-media{aspect-ratio:4/3.2}
+.w-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.work:hover .w-media img{transform:scale(1.06)}
+.w-ov{position:absolute;inset:0;background:rgba(18,59,74,0);display:flex;align-items:center;justify-content:center;transition:background-color .45s}
+.work:hover .w-ov{background:rgba(18,59,74,.55)}
+.w-zoom{width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:22px;display:flex;align-items:center;justify-content:center;transform:scale(.3) rotate(-90deg);opacity:0;transition:all .45s var(--ease)}
+.work:hover .w-zoom{transform:none;opacity:1}
+.w-info{padding:16px 4px 0}
+.w-top{display:flex;justify-content:space-between;margin-bottom:6px}
+.w-cat{font-size:13px;font-weight:700;color:var(--teal)}
+.w-year{font-size:13px;color:var(--text-2)}
+.w-info h3{font-family:var(--fh);font-weight:800;font-size:18.5px;transition:color .3s}
+.work:hover .w-info h3{color:var(--teal)}
+.w-info p{font-size:14px;color:var(--text-2)}
+.w-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.w-tags span{font-size:12px;font-weight:600;padding:4px 13px;border-radius:100px;border:1px solid var(--border);color:var(--text-2)}
+@media(max-width:1080px){.work,.work.wl,.work.ws{grid-column:span 6}.works-grid{gap:34px}}
+</style>
+</head>
+<body class="locked">
+
+<div class="ld-a"></div>
+<div class="ld-m"><span class="ld-logo">ک</span></div>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link active">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="works.html"><small>۰۳</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۴</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۵</small> رزومه</a>
+  <a class="m-link" href="index.html#contact"><small>۰۶</small> تماس</a>
+  <div class="m-cta"><a href="index.html#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+
+
+
+<section class="ph" style="padding-bottom:40px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>نمونه‌کارها</b></nav>
+    <h1 class="ph-title" data-split>همه‌ی <em>پروژه‌ها</em></h1>
+    <p class="ph-desc">۸ پروژه‌ی منتخب از بیش از ۱۲۰ کارِ انجام‌شده — هر کدام داستانِ حل یک چالش واقعی. برای جزئیات، روی هر کدام کلیک کنید.</p>
+    <div class="filters reveal" style="margin-top:30px">
+      <button class="f-btn active" data-filter="all">همه</button>
+      <button class="f-btn" data-filter="web">وب‌سایت</button>
+      <button class="f-btn" data-filter="ui">رابط کاربری</button>
+      <button class="f-btn" data-filter="motion">موشن</button>
+      <button class="f-btn" data-filter="app">اپلیکیشن</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="works-grid">
+      <a href="work-single.html" class="work wl reveal" data-cat="web" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 3.png" alt="مدرن‌شاپ"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">وب‌سایت — فروشگاهی</span><span class="w-year">۱۴۰۳</span></div>
+        <h3>فروشگاه اینترنتی مدرن‌شاپ</h3><p>تجربه‌ی خرید یک‌صفحه‌ای با سبد خرید زنده و نرخ تبدیل دو برابر</p>
+        <div class="w-tags"><span>Next.js</span><span>Tailwind</span></div></div>
+      </a>
+      <a href="work-single.html" class="work ws reveal" style="--d:.08s" data-cat="ui" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 4.jpg" alt="سنسا"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">رابط کاربری</span><span class="w-year">۱۴۰۳</span></div>
+        <h3>داشبورد تحلیلی سِنسا</h3><p>پنل مدیریت داده با نمودارهای تعاملی</p></div>
+      </a>
+      <a href="work-single.html" class="work ws reveal" data-cat="motion" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 5.jpg" alt="ابریک"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">موشن</span><span class="w-year">۱۴۰۳</span></div>
+        <h3>لندینگ محصول ابریک</h3><p>روایت اسکرولی برای SaaS</p></div>
+      </a>
+      <a href="work-single.html" class="work wl reveal" style="--d:.08s" data-cat="web" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 2.jpg" alt="آریا"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">وب‌سایت — شرکتی</span><span class="w-year">۱۴۰۲</span></div>
+        <h3>وب‌سایت هلدینگ آریا</h3><p>هویت دیجیتال سرمایه‌گذاری با روایت اسکرولی</p>
+        <div class="w-tags"><span>Next.js</span><span>GSAP</span></div></div>
+      </a>
+      <a href="work-single.html" class="work wl reveal" data-cat="web" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 7.jpg" alt="دانا"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">وب‌سایت — آموزشی</span><span class="w-year">۱۴۰۲</span></div>
+        <h3>پلتفرم آموزشی دانا</h3><p>سامانه‌ی دوره و آزمون با پخش ویدیوی اختصاصی</p>
+        <div class="w-tags"><span>React</span><span>Node.js</span></div></div>
+      </a>
+      <a href="work-single.html" class="work ws reveal" style="--d:.08s" data-cat="app" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 8.jpg" alt="پی‌بانک"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">اپلیکیشن</span><span class="w-year">۱۴۰۲</span></div>
+        <h3>اپلیکیشن پی‌بانک</h3><p>رابط اپ بانکی با تمرکز بر دسترس‌پذیری</p></div>
+      </a>
+      <a href="work-single.html" class="work ws reveal" data-cat="ui" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 13.jpg" alt="کاوان"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">رابط کاربری</span><span class="w-year">۱۴۰۱</span></div>
+        <h3>دیزاین‌سیستم کاوان</h3><p>کتابخانه‌ی کامپوننت برای تیم ۲۰ نفره</p></div>
+      </a>
+      <a href="work-single.html" class="work wl reveal" style="--d:.08s" data-cat="motion" data-cursor="مشاهده">
+        <div class="w-media"><img src="images/image 14.jpg" alt="نور"><div class="w-ov"><span class="w-zoom"><i class="ri-arrow-left-up-line"></i></span></div></div>
+        <div class="w-info"><div class="w-top"><span class="w-cat">موشن — کمپین</span><span class="w-year">۱۴۰۱</span></div>
+        <h3>کمپین تعاملی «نور»</h3><p>روایت اسکرولی برای معرفی آلبوم موسیقی مستقل</p>
+        <div class="w-tags"><span>SVG</span><span>Web Audio</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>حال که مرا می‌شناسید…<br>بیایید با هم <span class="outline-w">بسازیم</span></h2>
+      <a href="index.html#contact" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="index.html#services">توسعه فرانت‌اند</a></li>
+          <li><a href="index.html#services">طراحی رابط کاربری</a></li>
+          <li><a href="index.html#services">موشن و انیمیشن</a></li>
+          <li><a href="index.html#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="index.html#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+/* فیلتر پروژه‌ها */
+ $$('.f-btn').forEach(b=>b.addEventListener('click',()=>{
+ $$('.f-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+const c=b.dataset.filter;
+ $$('.work').forEach(w=>{const show=c==='all'||w.dataset.cat===c;
+if(show){const was=w.style.display==='none';w.style.display='';
+if(was)requestAnimationFrame(()=>requestAnimationFrame(()=>w.classList.remove('hide')));else w.classList.remove('hide')}
+else{w.classList.add('hide');setTimeout(()=>{if(w.classList.contains('hide'))w.style.display='none'},380)}})}));
+</script>
+</body>
+</html>

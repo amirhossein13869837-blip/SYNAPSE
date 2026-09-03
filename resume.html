@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.r-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.r-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.rs-card{padding:22px 20px;border-radius:18px;text-align:center}
+.rs-card i{width:46px;height:46px;border-radius:13px;background:var(--navy);color:var(--gold);font-size:19px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+.rs-card b{font-family:var(--fh);font-weight:900;font-size:1.7rem;display:block;color:var(--navy)}
+.rs-card b em{font-style:normal;color:var(--teal)}
+.rs-card small{font-size:13px;color:var(--text-2)}
+.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 40px;margin-top:48px}
+.sk-row{display:flex;align-items:center;gap:22px;padding:20px 18px;border-bottom:1px solid var(--border);border-radius:18px;transition:background-color .35s,transform .4s var(--ease)}
+.sk-row:hover{background:var(--glass);transform:translateX(-8px)}
+.sk-ring{position:relative;width:84px;height:84px;flex:none}
+.sk-ring svg{transform:rotate(-90deg)}
+.sk-bg{fill:none;stroke:rgba(18,59,74,.09);stroke-width:6}
+.sk-fill{fill:none;stroke:var(--teal);stroke-width:6;stroke-linecap:round}
+.sk-row:hover .sk-fill{stroke:var(--gold)}
+.sk-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:14.5px}
+.sk-row h3{font-family:var(--fh);font-weight:800;font-size:18px}
+.sk-row p{font-size:13px;color:var(--text-2)}
+.chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 19px;border-radius:100px;background:var(--glass);backdrop-filter:blur(8px);border:1px solid var(--border);font-size:14px;font-weight:600;box-shadow:var(--sh-sm);transition:all .35s var(--ease)}
+.chip i{color:var(--teal);font-size:16px}
+.chip:hover{background:var(--navy);color:#fff;transform:translateY(-6px) rotate(-2deg)}
+.chip:hover i{color:var(--gold)}
+/* تایم‌لاین دوطرفه */
+.tl{position:relative;max-width:900px;margin:56px auto 0;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;background:var(--border);transform:translateX(-50%);border-radius:2px}
+.tl-item{position:relative;display:flex;justify-content:flex-start;padding-bottom:48px}
+.tl-item:nth-child(even){justify-content:flex-end}
+.tl-dot{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--bg);border:4px solid var(--teal);z-index:2;transition:all .3s}
+.tl-item:hover .tl-dot{background:var(--gold);border-color:var(--gold);transform:translateX(-50%) scale(1.3)}
+.tl-item::after{content:'';position:absolute;top:15px;width:34px;height:2px;background:rgba(18,59,74,.2);z-index:2;transition:background-color .3s}
+.tl-item:nth-child(odd)::after{left:50%;margin-left:12px}
+.tl-item:nth-child(even)::after{right:50%;margin-right:12px}
+.tl-item:hover::after{background:var(--gold)}
+.tl-card{width:calc(50% - 46px);background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.85);border-radius:20px;padding:24px 26px;box-shadow:var(--sh-sm);transition:transform .45s var(--ease),box-shadow .45s}
+.tl-card:hover{transform:translateY(-7px);box-shadow:var(--sh-lg)}
+.tl-year{display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--fh);font-weight:800;font-size:13px;padding:4px 16px;border-radius:100px;margin-bottom:12px}
+.tl-card h3{font-family:var(--fh);font-weight:800;font-size:18px}
+.tl-card h4{font-size:14px;font-weight:600;color:var(--teal);margin:2px 0 10px}
+.tl-card p{font-size:14px;color:var(--text-2)}
+/* سه‌ستونه */
+.tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:start}
+.tri-col h3{font-family:var(--fh);font-weight:800;font-size:17.5px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.tri-col h3 i{color:var(--gold);font-size:20px}
+.edu-card{padding:20px 22px;border-radius:18px;margin-bottom:14px}
+.edu-card b{font-family:var(--fh);font-weight:800;font-size:15.5px;display:block}
+.edu-card small{font-size:13px;color:var(--text-2);display:block;margin-top:4px}
+.lang-row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:14px;margin-bottom:12px}
+.lang-row b{font-size:15px}
+.dots{display:flex;gap:6px}
+.dots i{width:9px;height:9px;border-radius:50%;background:rgba(18,59,74,.15)}
+.dots i.on{background:var(--teal)}
+.cert-card{padding:20px 22px;border-radius:18px;display:flex;gap:14px;align-items:center;transition:transform .4s var(--ease);margin-bottom:12px}
+.cert-card:hover{transform:translateY(-5px)}
+.cert-card i{width:44px;height:44px;flex:none;border-radius:13px;background:rgba(232,197,71,.16);color:#C9A227;font-size:19px;display:flex;align-items:center;justify-content:center}
+.cert-card b{font-size:14.5px;display:block}
+.cert-card small{font-size:12.5px;color:var(--text-2)}
+/* چاپ */
+@media print{
+.header,.progress,.to-top,.toasts,.net,.cursor-dot,.cursor-ring,.cursor-ripple,.f-cta,.no-print,.ld-a,.ld-m,.mobile-menu{display:none!important}
+body{overflow:visible;background:#fff}
+.ph{padding:40px 0 20px}.section{padding:30px 0}
+.glass{background:#fff;backdrop-filter:none;box-shadow:none}
+.footer{display:none}
+.tl-card,.rs-card,.sk-row{box-shadow:none}
+}
+@media(max-width:900px){.sk-grid{grid-template-columns:1fr}.tri-grid{grid-template-columns:1fr}.r-stats{grid-template-columns:1fr 1fr}
+.tl::before{left:auto;right:9px;transform:none}
+.tl-item,.tl-item:nth-child(even){justify-content:flex-start;padding:0 44px 46px 0}
+.tl-dot{left:auto;right:1px;transform:none}
+.tl-item:hover .tl-dot{transform:scale(1.3)}
+.tl-item::after,.tl-item:nth-child(odd)::after,.tl-item:nth-child(even)::after{left:auto;right:12px;margin:0;width:32px}
+.tl-card{width:100%}}
+@media(max-width:640px){.r-stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body class="locked">
+
+<div class="ld-a"></div>
+<div class="ld-m"><span class="ld-logo">ک</span></div>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link active">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="works.html"><small>۰۳</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۴</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۵</small> رزومه</a>
+  <a class="m-link" href="index.html#contact"><small>۰۶</small> تماس</a>
+  <div class="m-cta"><a href="index.html#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+<section class="ph">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>رزومه</b></nav>
+    <h1 class="ph-title" data-split>رزومه‌ی <em>کامیار</em> احمدی</h1>
+    <p class="ph-desc">توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری — ۵+ سال تجربه در ساخت محصولات وب که کاربران دوستشان دارند.</p>
+    <div class="r-btns reveal no-print">
+      <button class="btn btn-primary magnetic" id="pdfBtn"><i class="ri-download-2-line"></i> دانلود PDF</button>
+      <a href="index.html#contact" class="btn btn-outline magnetic">استخدام من <i class="ri-user-smile-line"></i></a>
+    </div>
+    <div class="r-stats">
+      <div class="rs-card glass spot reveal"><i class="ri-briefcase-4-line"></i><b>۱۲۰<em>+</em></b><small>پروژه</small></div>
+      <div class="rs-card glass spot reveal" style="--d:.06s"><i class="ri-user-smile-line"></i><b>۸۵<em>+</em></b><small>مشتری</small></div>
+      <div class="rs-card glass spot reveal" style="--d:.12s"><i class="ri-time-line"></i><b>۵<em>+</em></b><small>سال تجربه</small></div>
+      <div class="rs-card glass spot reveal" style="--d:.18s"><i class="ri-medal-line"></i><b>۹۸<em>٪</em></b><small>رضایت</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- مهارت‌ها -->
+<section class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal"><div class="sec-tag"><span class="n">۰۱</span><span class="l"></span><span>مهارت‌ها</span></div>
+      <h2 class="sec-title" data-split>شایستگی‌های <em>فنی</em></h2></div>
+    <div class="sk-grid">
+      <div class="sk-row reveal" data-val="98"><div class="sk-ring"><svg width="84" height="84" viewBox="0 0 84 84"><circle class="sk-bg" cx="42" cy="42" r="36"/><circle class="sk-fill" cx="42" cy="42" r="36"/></svg><span class="sk-num">۰٪</span></div><div><h3>HTML / CSS</h3><p>بنیانِ وب؛ معنادار، واکنش‌گرا و دقیق</p></div></div>
+      <div class="sk-row reveal" style="--d:.08s" data-val="95"><div class="sk-ring"><svg width="84" height="84" viewBox="0 0 84 84"><circle class="sk-bg" cx="42" cy="42" r="36"/><circle class="sk-fill" cx="42" cy="42" r="36"/></svg><span class="sk-num">۰٪</span></div><div><h3>جاوااسکریپت / TypeScript</h3><p>منطق و تعامل؛ از اسکریپت تا معماری</p></div></div>
+      <div class="sk-row reveal" style="--d:.16s" data-val="90"><div class="sk-ring"><svg width="84" height="84" viewBox="0 0 84 84"><circle class="sk-bg" cx="42" cy="42" r="36"/><circle class="sk-fill" cx="42" cy="42" r="36"/></svg><span class="sk-num">۰٪</span></div><div><h3>React / Next.js</h3><p>کامپوننت‌های مقیاس‌پذیر</p></div></div>
+      <div class="sk-row reveal" style="--d:.24s" data-val="92"><div class="sk-ring"><svg width="84" height="84" viewBox="0 0 84 84"><circle class="sk-bg" cx="42" cy="42" r="36"/><circle class="sk-fill" cx="42" cy="42" r="36"/></svg><span class="sk-num">۰٪</span></div><div><h3>طراحی UI / UX</h3><p>زیباییِ کاربردی برای انسان‌های واقعی</p></div></div>
+    </div>
+    <div class="chips reveal">
+      <span class="chip"><i class="ri-github-line"></i>Git</span><span class="chip"><i class="ri-pen-nib-line"></i>Figma</span>
+      <span class="chip"><i class="ri-reactjs-line"></i>React</span><span class="chip"><i class="ri-nextjs-line"></i>Next.js</span>
+      <span class="chip"><i class="ri-tailwind-css-line"></i>Tailwind</span><span class="chip"><i class="ri-css3-line"></i>Sass</span>
+      <span class="chip"><i class="ri-rocket-line"></i>Vite</span><span class="chip"><i class="ri-wordpress-line"></i>WordPress</span>
+    </div>
+  </div>
+</section>
+
+<!-- سوابق -->
+<section class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center"><div class="sec-tag" style="justify-content:center"><span class="n">۰۲</span><span class="l"></span><span>سوابق</span></div>
+      <h2 class="sec-title" data-split>تجربه‌ی <em>حرفه‌ای</em></h2></div>
+    <div class="tl">
+      <div class="tl-item reveal"><span class="tl-dot"></span>
+        <div class="tl-card"><span class="tl-year">۱۴۰۳ — اکنون</span><h3>توسعه‌دهنده‌ی ارشد فرانت‌اند</h3><h4>شرکت فناوری داده‌پرداز</h4>
+          <p>رهبری فنی تیم ۵ نفره، طراحی دیزاین‌سیستم مشترک و بهبود ۴۰٪ سرعت محصولات شرکت.</p></div></div>
+      <div class="tl-item reveal"><span class="tl-dot"></span>
+        <div class="tl-card"><span class="tl-year">۱۴۰۱ — ۱۴۰۳</span><h3>توسعه‌دهنده‌ی فرانت‌اند</h3><h4>آژانس دیجیتال رایکا</h4>
+          <p>توسعه‌ی بیش از ۴۰ وب‌سایت برای برندهای داخلی؛ از فروشگاه آنلاین تا پنل مدیریتی.</p></div></div>
+      <div class="tl-item reveal"><span class="tl-dot"></span>
+        <div class="tl-card"><span class="tl-year">۱۳۹۹ — ۱۴۰۱</span><h3>طراح رابط کاربری</h3><h4>استودیو پیکسل‌رنگ</h4>
+          <p>طراحی رابط اپ‌های مالی و آموزشی؛ از تحقیق کاربر تا تست نهایی.</p></div></div>
+      <div class="tl-item reveal"><span class="tl-dot"></span>
+        <div class="tl-card"><span class="tl-year">۱۳۹۷ — ۱۳۹۹</span><h3>فریلنسر فرانت‌اند</h3><h4>پروژه‌های مستقل</h4>
+          <p>شروع مسیر حرفه‌ای؛ یادگیری عمیق از هر پروژه و هر مشتری.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- آموزش / زبان / گواهی -->
+<section class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="tri-grid">
+      <div class="tri-col reveal">
+        <h3><i class="ri-graduation-cap-line"></i>تحصیلات</h3>
+        <div class="edu-card glass spot"><b>کارشناسی مهندسی کامپیوتر</b><small>دانشگاه تهران — ۱۳۹۷ تا ۱۴۰۱</small></div>
+        <div class="edu-card glass spot"><b>دیپلم ریاضی و فیزیک</b><small>دبیرستان البرز — ۱۳۹۷</small></div>
+      </div>
+      <div class="tri-col reveal" style="--d:.1s">
+        <h3><i class="ri-global-line"></i>زبان‌ها</h3>
+        <div class="lang-row glass"><b>فارسی</b><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="lang-row glass"><b>انگلیسی — پیشرفته</b><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        <div class="lang-row glass"><b>ترکی استانبولی — مقدماتی</b><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="tri-col reveal" style="--d:.2s">
+        <h3><i class="ri-award-line"></i>گواهی‌نامه‌ها</h3>
+        <div class="cert-card glass spot"><i class="ri-code-s-slash-line"></i><div><b>Meta Front-End Developer</b><small>Coursera — ۱۴۰۱</small></div></div>
+        <div class="cert-card glass spot"><i class="ri-reactjs-line"></i><div><b>Advanced React</b><small>Meta — ۱۴۰۲</small></div></div>
+        <div class="cert-card glass spot"><i class="ri-palette-line"></i><div><b>Google UX Design</b><small>Coursera — ۱۴۰۲</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>حال که مرا می‌شناسید…<br>بیایید با هم <span class="outline-w">بسازیم</span></h2>
+      <a href="index.html#contact" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="index.html#services">توسعه فرانت‌اند</a></li>
+          <li><a href="index.html#services">طراحی رابط کاربری</a></li>
+          <li><a href="index.html#services">موشن و انیمیشن</a></li>
+          <li><a href="index.html#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="index.html#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+const sio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+const row=e.target,t=+row.dataset.val,fill=row.querySelector('.sk-fill'),num=row.querySelector('.sk-num');
+const C=2*Math.PI*36;fill.style.strokeDasharray=C;const t0=performance.now();
+(function st(n){const p=Math.min(1,(n-t0)/1600),v=1-Math.pow(1-p,3);
+fill.style.strokeDashoffset=C*(1-(t/100)*v);num.textContent=toFa(Math.round(t*v))+'٪';
+if(p<1)requestAnimationFrame(st)})(t0);sio.unobserve(row)}),{threshold:.4});
+ $$('.sk-row').forEach(r=>sio.observe(r));
+ $('#pdfBtn').addEventListener('click',()=>{
+toast('پنجره‌ی چاپ باز می‌شود؛ گزینه‌ی «Save as PDF» را انتخاب کنید.');
+setTimeout(()=>print(),900)});
+</script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>همکاری با من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body.menu-open .m-link:nth-child(8){transition-delay:.44s}
+body.menu-open .m-link:nth-child(9){transition-delay:.49s}
+/* ارزش‌های همکاری */
+.cr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.cr-val{padding:26px 24px;border-radius:20px;display:flex;flex-direction:column;gap:12px;transition:transform .45s var(--ease),box-shadow .45s}
+.cr-val:hover{transform:translateY(-8px);box-shadow:var(--sh-lg)}
+.cr-val i.vi{width:48px;height:48px;border-radius:14px;background:var(--navy);color:var(--gold);font-size:20px;display:flex;align-items:center;justify-content:center}
+.cr-val b{font-family:var(--fh);font-weight:800;font-size:16px}
+.cr-val p{font-size:13.5px;color:var(--text-2)}
+/* آگهی‌ها */
+.cr-jobs{display:grid;gap:22px;margin-top:52px}
+.cr-job{padding:28px 30px;border-radius:24px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;transition:transform .45s var(--ease),box-shadow .45s}
+.cr-job:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
+.cr-jic{width:58px;height:58px;border-radius:17px;display:flex;align-items:center;justify-content:center;font-size:25px;color:#fff;flex:none}
+.cr-head{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-bottom:7px}
+.cr-head h3{font-family:var(--fh);font-weight:800;font-size:19px}
+.cr-type{font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px;background:rgba(var(--teal-rgb),.1);color:var(--teal)}
+.cr-type.rem{background:rgba(232,197,71,.15);color:#A8891F}
+.cr-job p{font-size:14px;color:var(--text-2)}
+.cr-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:12.5px;color:var(--text-2)}
+.cr-meta span{display:inline-flex;align-items:center;gap:6px}
+.cr-meta i{color:var(--teal);font-size:14px}
+.cr-job .btn{white-space:nowrap}
+/* ═══  فرم درخواست  ═══ */
+.cr-form{margin-top:64px;padding:clamp(28px,4vw,44px);border-radius:28px;background:var(--white);border:1px solid var(--border);box-shadow:var(--sh-lg)}
+.cr-form h3{font-family:var(--fh);font-weight:900;font-size:clamp(1.3rem,2.8vw,1.8rem);margin-bottom:8px}
+.cr-form>p{color:var(--text-2);font-size:14.5px;margin-bottom:24px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f-group{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.f-group label{font-size:14px;font-weight:700}
+.f-group input,.f-group textarea{
+  font-family:var(--fb);font-size:15px;color:var(--text);
+  background:var(--bg);border:1.5px solid var(--border);border-radius:14px;
+  padding:13px 17px;resize:vertical;
+  transition:border-color .3s,box-shadow .3s,background-color .3s}
+.f-group input::placeholder,.f-group textarea::placeholder{color:var(--text-2);opacity:.75}
+.f-group input:focus,.f-group textarea:focus{
+  outline:none;border-color:var(--teal);background:var(--white);
+  box-shadow:0 0 0 4px rgba(var(--teal-rgb),.14)}
+.f-group input.invalid,.f-group textarea.invalid{border-color:#D65A5A}
+.f-group input.invalid:focus,.f-group textarea.invalid:focus{box-shadow:0 0 0 4px rgba(214,90,90,.14)}
+.f-err{font-size:12.5px;color:#D65A5A;min-height:18px}
+.cr-req{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+.cr-req span{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;padding:13px 16px;border-radius:13px;background:var(--bg);border:1.5px solid var(--border);cursor:pointer;transition:all .25s;color:var(--text-2)}
+.cr-req span:hover{border-color:var(--teal);color:var(--teal)}
+.cr-req span.sel{background:rgba(var(--teal-rgb),.1);border-color:var(--teal);color:var(--teal)}
+.cr-req span i{font-size:16px}
+#crBtn{width:100%;justify-content:center}
+#crBtn:disabled{opacity:.75}
+@media(max-width:1080px){.cr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.cr-job{grid-template-columns:1fr}.cr-job .btn{justify-content:center}.cr-jic{width:52px;height:52px;font-size:22px}}
+@media(max-width:640px){.cr-grid{grid-template-columns:1fr}.cr-req{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}.cr-job{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="services.html"><small>۰۳</small> خدمات</a>
+  <a class="m-link" href="works.html"><small>۰۴</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۵</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۶</small> رزومه</a>
+  <a class="m-link" href="faq.html"><small>۰۷</small> سوالات متداول</a>
+  <a class="m-link" href="contact.html"><small>۰۸</small> تماس</a>
+  <div class="m-cta"><a href="contact.html" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<section class="ph">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>همکاری</b></nav>
+    <h1 class="ph-title" data-split>بیا <em>تیم</em> بشیم</h1>
+    <p class="ph-desc">برخی پروژه‌ها بزرگ‌تر از یک نفرند. این‌جا از چه کسانی دعوت می‌کنم و چه چیزی در ازایش می‌دهم — رک و بی‌تعارف.</p>
+  </div>
+</section>
+
+<!-- ارزش‌های همکاری -->
+<section class="section" style="padding-top:30px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-tag"><span class="n">۰۱</span><span class="l"></span><span>روش کارِ تیمی</span></div>
+      <h2 class="sec-title" data-split>سه قاعده‌ی <em>همیشگی</em> من</h2>
+    </div>
+    <div class="cr-grid">
+      <div class="cr-val glass spot reveal"><i class="vi ri-hand-coin-line"></i><b>پرداختِ منصفانه و به‌موقع</b><p>سهم تو را قبل از شروع، مکتوب و شفاف توافق می‌کنیم؛ پرداخت‌ها هرگز معطل نمی‌مانند.</p></div>
+      <div class="cr-val glass spot reveal" style="--d:.08s"><i class="vi ri-star-smile-line"></i><b>اسمِ تو روی کار</b><p>در نمونه‌کارها و معرفی پروژه، مشارکت واقعی‌ات شفاف ذکر می‌شود — برای ساختن رزومه‌ی خودت.</p></div>
+      <div class="cr-val glass spot reveal" style="--d:.16s"><i class="vi ri-seedling-line"></i><b>رشد، نه فقط کار</b><p>هر پروژه یک چیز تازه دارد؛ کدها بازنظری می‌شوند، توضیح داده می‌شوند و چیزی برای یادگیری باقی می‌ماند.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- فرصت‌های همکاری -->
+<section class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-tag"><span class="n">۰۲</span><span class="l"></span><span>فرصت‌های فعال</span></div>
+      <h2 class="sec-title" data-split>الان دنبال <em>چه کسی</em> هستم؟</h2>
+    </div>
+    <div class="cr-jobs">
+      <div class="cr-job glass spot reveal">
+        <span class="cr-jic" style="background:#1F7EC2"><i class="ri-code-s-slash-line"></i></span>
+        <div>
+          <div class="cr-head"><h3>توسعه‌دهنده‌ی فرانت‌اند (ری‌اکت)</h3><span class="cr-type">پروژه‌ای — ریموت</span></div>
+          <p>برای پروژه‌های بزرگ‌تر، به کسی نیاز دارم که با React/Next.js و TypeScript راحت باشد؛ کدِ تمیز و آپدیت هفتگی برایش مفهوم باشد.</p>
+          <div class="cr-meta">
+            <span><i class="ri-time-line"></i>۳ تا ۶ ماه</span>
+            <span><i class="ri-coins-line"></i>توافقی بر اساس ساعتی</span>
+            <span><i class="ri-global-line"></i>کاملاً ریموت</span>
+            <span><i class="ri-graduation-cap-line"></i>از ۲ سال تجربه</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn btn-primary magnetic">ارسال درخواست <i class="ri-arrow-left-line"></i></a>
+      </div>
+
+      <div class="cr-job glass spot reveal" style="--d:.08s">
+        <span class="cr-jic" style="background:#E07F90"><i class="ri-palette-line"></i></span>
+        <div>
+          <div class="cr-head"><h3>طراح UI (فیگما)</h3><span class="cr-type">پروژه‌ای — ریموت</span></div>
+          <p>کسی که سیستم‌های طراحی بشناسد و از موشن و میکرواینترکشن خوشش بیاید؛ کارِ مشترکِ ما تبدیل ایده به رابط‌های قابل پیاده‌سازی است.</p>
+          <div class="cr-meta">
+            <span><i class="ri-time-line"></i>۱ تا ۳ ماه</span>
+            <span><i class="ri-coins-line"></i>توافقی بر اساس پروژه</span>
+            <span><i class="ri-global-line"></i>کاملاً ریموت</span>
+            <span><i class="ri-graduation-cap-line"></i>از ۱ سال تجربه</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn btn-primary magnetic">ارسال درخواست <i class="ri-arrow-left-line"></i></a>
+      </div>
+
+      <div class="cr-job glass spot reveal" style="--d:.16s">
+        <span class="cr-jic" style="background:#7C6BE8"><i class="ri-quill-pen-line"></i></span>
+        <div>
+          <div class="cr-head"><h3>نویسنده‌ی فنی وبلاگ</h3><span class="cr-type rem">پاره‌وقت — انعطاف کامل</span></div>
+          <p>اگر می‌نویسی و درک فنی داری، برای وبلاگ محتوای آموزشی تولید می‌کنیم؛ موضوع و زمان‌بندی با هم، درآمد بر اساس هر مقاله.</p>
+          <div class="cr-meta">
+            <span><i class="ri-time-line"></i>انعطاف‌پذیر</span>
+            <span><i class="ri-coins-line"></i>هر مقاله جداگانه</span>
+            <span><i class="ri-global-line"></i>ریموت</span>
+            <span><i class="ri-graduation-cap-line"></i>بدون محدودیت سابقه</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn btn-primary magnetic">ارسال درخواست <i class="ri-arrow-left-line"></i></a>
+      </div>
+    </div>
+
+    <!-- فرم درخواست -->
+    <div class="cr-form reveal" id="apply">
+      <div class="sec-tag" style="margin-bottom:14px"><span class="n">۰۳</span><span class="l"></span><span>فرم درخواست</span></div>
+      <h3>خودت را معرفی کن</h3>
+      <p>همین فرم کافی است؛ اگر رزومه هم داری، لینکش را در پیام بگذار (LinkedIn، GitHub یا هر جای دیگر).</p>
+      <form id="crForm" novalidate>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="crName">نام و نام خانوادگی *</label>
+            <input type="text" id="crName" placeholder="مثلاً مریم رضایی" autocomplete="name">
+            <span class="f-err"></span>
+          </div>
+          <div class="f-group">
+            <label for="crEmail">ایمیل *</label>
+            <input type="email" id="crEmail" placeholder="you@example.com" dir="ltr" style="text-align:left" autocomplete="email">
+            <span class="f-err"></span>
+          </div>
+        </div>
+        <div class="f-group">
+          <label>کدام فرصت؟ *</label>
+          <div class="cr-req" id="crRoles">
+            <span data-role="dev"><i class="ri-code-s-slash-line"></i>توسعه‌دهنده‌ی فرانت‌اند</span>
+            <span data-role="ui"><i class="ri-palette-line"></i>طراح UI</span>
+            <span data-role="writer"><i class="ri-quill-pen-line"></i>نویسنده‌ی فنی</span>
+          </div>
+          <span class="f-err"></span>
+        </div>
+        <div class="f-group">
+          <label for="crMsg">درباره‌ی خودت بگو *</label>
+          <textarea id="crMsg" rows="4" placeholder="تجربه‌ها، لینک رزومه یا نمونه‌کار، و اینکه چرا این فرصت به تو می‌خورد…"></textarea>
+          <span class="f-err"></span>
+        </div>
+        <button type="submit" class="btn btn-primary magnetic" id="crBtn">
+          <span class="btn-text">ارسال درخواست همکاری</span>
+          <i class="ri-send-plane-line" style="transform:scaleX(-1)"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>فکر می‌کنی جایی در این<br>داستان <span class="outline-w">برای تو هست؟</span></h2>
+      <a href="#apply" class="btn btn-gold magnetic">فرم درخواست را پر کن <i class="ri-arrow-left-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="services.html">توسعه فرانت‌اند</a></li>
+          <li><a href="services.html">طراحی رابط کاربری</a></li>
+          <li><a href="services.html">موشن و انیمیشن</a></li>
+          <li><a href="services.html">بهینه‌سازی و سرعت</a></li>
+          <li><a href="services.html">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+/* انتخاب نقش + اعتبارسنجی فرم همکاری */
+(function(){
+  let role = '';
+  document.querySelectorAll('#crRoles span').forEach(s => s.addEventListener('click', () => {
+    document.querySelectorAll('#crRoles span').forEach(x => x.classList.remove('sel'));
+    s.classList.add('sel');
+    role = s.dataset.role;
+    const e = s.closest('.f-group').querySelector('.f-err');
+    if (e) e.textContent = '';
+  }));
+
+  function err(input, m){
+    input.parentElement.querySelector('.f-err').textContent = m;
+    input.classList.toggle('invalid', !!m);
+    return !!m;
+  }
+
+  const form = document.getElementById('crForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('crName');
+    const email = document.getElementById('crEmail');
+    const msg = document.getElementById('crMsg');
+    const roleErr = document.querySelector('#crRoles').closest('.f-group').querySelector('.f-err');
+    let bad = false;
+    bad = err(name, name.value.trim().length < 2 ? 'لطفاً نامت را بنویس.' : '') || bad;
+    bad = err(email, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) ? 'ایمیل معتبر وارد کن.' : '') || bad;
+    if (!role) { roleErr.textContent = 'یکی از فرصت‌ها را انتخاب کن.'; bad = true; }
+    else roleErr.textContent = '';
+    bad = err(msg, msg.value.trim().length < 20 ? 'کمی بیشتر درباره‌ی خودت بگو (حداقل ۲۰ کاراکتر).' : '') || bad;
+    if (bad) { toast('فرم هنوز کامل نیست؛ فیلدهای قرمز را چک کن.', 'error'); return; }
+
+    const btn = document.getElementById('crBtn');
+    btn.disabled = true;
+    btn.querySelector('.btn-text').textContent = 'در حال ارسال…';
+    setTimeout(() => {
+      try {
+        sessionStorage.setItem('afLastMsg', JSON.stringify({ name: name.value.trim(), subject: 'درخواست همکاری', time: Date.now() }));
+      } catch(e2){}
+      location.href = 'thank-you.html';
+    }, 1000);
+  });
+
+  form.querySelectorAll('input, textarea').forEach(i => i.addEventListener('input', () => {
+    i.classList.remove('invalid');
+    const e = i.parentElement.querySelector('.f-err');
+    if (e) e.textContent = '';
+  }));
+})();
+</script>
+</body>
+</html>

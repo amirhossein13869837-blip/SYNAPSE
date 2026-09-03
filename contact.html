@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تماس | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body.menu-open .m-link:nth-child(8){transition-delay:.44s}
+body.menu-open .m-link:nth-child(9){transition-delay:.49s}
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(44px,6vw,84px);align-items:start}
+.c-items{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+.c-item{display:flex;align-items:center;gap:17px;padding:16px 20px;border-radius:18px;transition:transform .4s var(--ease),box-shadow .4s}
+.c-item:hover{transform:translateY(-6px) scale(1.015);box-shadow:var(--sh-lg)}
+.c-icon{width:50px;height:50px;flex:none;border-radius:15px;background:var(--navy);color:var(--gold);font-size:21px;display:flex;align-items:center;justify-content:center}
+.c-item .c-label{display:block;font-size:12.5px;color:var(--text-2)}
+.c-item strong{font-size:15px;font-weight:700}
+.c-social{display:flex;gap:11px;margin-top:26px}
+.social-link{width:46px;height:46px;border-radius:14px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text-2);transition:all .35s var(--ease)}
+.social-link:hover{color:#fff;background:var(--teal);border-color:var(--teal);transform:translateY(-5px) rotate(-6deg)}
+.contact-form{background:var(--white);border:1px solid var(--border);border-radius:28px;padding:clamp(28px,4vw,44px);box-shadow:var(--sh-lg)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f-group{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.f-group label{font-size:14px;font-weight:700}
+.f-group input,.f-group textarea,.f-group select{font-family:var(--fb);font-size:15px;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:13px 17px;resize:vertical;transition:border-color .3s,box-shadow .3s,background-color .3s}
+.f-group select{cursor:pointer}
+.f-group input:focus,.f-group textarea:focus,.f-group select:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(32,178,170,.14)}
+.f-group input.invalid,.f-group textarea.invalid{border-color:#D65A5A}
+.f-err{font-size:12.5px;color:#D65A5A;min-height:18px}
+#submitBtn{width:100%;justify-content:center}
+#submitBtn:disabled{opacity:.75}
+.btn-spin{display:none;width:19px;height:19px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:tkSpin .7s linear infinite}
+#submitBtn.loading .btn-spin{display:inline-block}
+#submitBtn.loading .btn-text,#submitBtn.loading .btn-icon{display:none}
+@keyframes tkSpin{to{transform:rotate(360deg)}}
+@media(max-width:1080px){.contact-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.f-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link active">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="services.html"><small>۰۳</small> خدمات</a>
+  <a class="m-link" href="works.html"><small>۰۴</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۵</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۶</small> رزومه</a>
+  <a class="m-link" href="faq.html"><small>۰۷</small> سوالات متداول</a>
+  <a class="m-link" href="contact.html"><small>۰۸</small> تماس</a>
+  <div class="m-cta"><a href="contact.html" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<section class="ph">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><b>تماس</b></nav>
+    <h1 class="ph-title" data-split>بیایید <em>گفت‌وگو</em> کنیم</h1>
+    <p class="ph-desc">ایده، سوال یا حتی یک «سلام» ساده؛ معمولاً در کمتر از ۲۴ ساعت پاسخ می‌دهم. فرم را پر کنید تا مستقیم به صفحه‌ی تأیید برسید.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:30px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="sec-tag"><span class="n">۰۱</span><span class="l"></span><span>راه‌های ارتباط</span></div>
+        <h2 class="sec-title" data-split>مستقیم <em>در دسترس</em></h2>
+        <p class="sec-desc">اگر فرم دوست نداری، از یکی از این راه‌ها پیام بده؛ همه‌شان به خودم می‌رسد، نه دستیار و نه ربات!</p>
+        <div class="c-items">
+          <a class="c-item glass spot float-a" href="mailto:amirhossein.f.dev@gmail.com">
+            <span class="c-icon"><i class="ri-mail-line"></i></span>
+            <div><span class="c-label">ایمیل</span><strong class="ltr">amirhossein.f.dev@gmail.com</strong></div>
+          </a>
+          <a class="c-item glass spot float-c" href="tel:+989121234567">
+            <span class="c-icon"><i class="ri-phone-line"></i></span>
+            <div><span class="c-label">تلفن</span><strong>۰۹۱۲ ۱۲۳ ۴۵۶۷</strong></div>
+          </a>
+          <div class="c-item glass spot float-b">
+            <span class="c-icon"><i class="ri-map-pin-line"></i></span>
+            <div><span class="c-label">آدرس</span><strong>تهران، ایران — همکاری ریموت در کل جهان</strong></div>
+          </div>
+          <div class="c-item glass spot float-d">
+            <span class="c-icon"><i class="ri-time-line"></i></span>
+            <div><span class="c-label">ساعات پاسخگویی</span><strong>شنبه تا پنجشنبه، ۹ تا ۱۸</strong></div>
+          </div>
+        </div>
+        <div class="c-social">
+          <a class="social-link" href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a class="social-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a class="social-link" href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" style="--d:.15s" id="contactForm" novalidate>
+        <div class="sec-tag" style="margin-bottom:20px"><span class="n">۰۲</span><span class="l"></span><span>فرم پیام</span></div>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="fName">نام و نام خانوادگی *</label>
+            <input type="text" id="fName" placeholder="مثلاً سارا محمدی" autocomplete="name">
+            <span class="f-err"></span>
+          </div>
+          <div class="f-group">
+            <label for="fEmail">ایمیل *</label>
+            <input type="email" id="fEmail" placeholder="you@example.com" dir="ltr" style="text-align:left" autocomplete="email">
+            <span class="f-err"></span>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="fPhone">شماره تماس (اختیاری)</label>
+            <input type="tel" id="fPhone" placeholder="۰۹۱۲ ـــ ـــ ـــ" autocomplete="tel">
+            <span class="f-err"></span>
+          </div>
+          <div class="f-group">
+            <label for="fBudget">بودجه‌ی تقریبی (اختیاری)</label>
+            <select id="fBudget">
+              <option value="">انتخاب کنید…</option>
+              <option>زیر ۲۰ میلیون تومان</option>
+              <option>۲۰ تا ۵۰ میلیون تومان</option>
+              <option>۵۰ تا ۱۰۰ میلیون تومان</option>
+              <option>بالای ۱۰۰ میلیون تومان</option>
+              <option>هنوز نمی‌دانم</option>
+            </select>
+            <span class="f-err"></span>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="fSubject">موضوع</label>
+          <input type="text" id="fSubject" placeholder="مثلاً درخواست طراحی وب‌سایت شرکتی">
+          <span class="f-err"></span>
+        </div>
+        <div class="f-group">
+          <label for="fMsg">پیام شما *</label>
+          <textarea id="fMsg" rows="5" placeholder="درباره‌ی پروژه یا سوالتان بنویسید…"></textarea>
+          <span class="f-err"></span>
+        </div>
+        <button type="submit" class="btn btn-primary magnetic" id="submitBtn">
+          <span class="btn-text">ارسال پیام</span>
+          <i class="ri-send-plane-line btn-icon" style="transform:scaleX(-1)"></i>
+          <span class="btn-spin"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>رسیدیم به آخرِ صفحه<br>حالا فقط یک <span class="outline-w">پیام</span> فاصله داریم</h2>
+      <a href="faq.html" class="btn btn-gold magnetic">اول سوال‌های رایج را ببینم <i class="ri-question-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="services.html">توسعه فرانت‌اند</a></li>
+          <li><a href="services.html">طراحی رابط کاربری</a></li>
+          <li><a href="services.html">موشن و انیمیشن</a></li>
+          <li><a href="services.html">بهینه‌سازی و سرعت</a></li>
+          <li><a href="services.html">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+/* اعتبارسنجی و ارسال → صفحه‌ی تشکر */
+(function(){
+  const form = document.getElementById('contactForm');
+  const name = document.getElementById('fName');
+  const email = document.getElementById('fEmail');
+  const msg = document.getElementById('fMsg');
+  const setErr = (input, m) => {
+    input.parentElement.querySelector('.f-err').textContent = m;
+    input.classList.toggle('invalid', !!m);
+    return !!m;
+  };
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let bad = false;
+    bad = setErr(name, name.value.trim().length < 2 ? 'لطفاً نام خود را وارد کنید.' : '') || bad;
+    bad = setErr(email, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) ? 'ایمیل واردشده معتبر نیست.' : '') || bad;
+    bad = setErr(msg, msg.value.trim().length < 10 ? 'پیام باید حداقل ۱۰ کاراکتر باشد.' : '') || bad;
+    if (bad) { toast('لطفاً خطاهای فرم را برطرف کنید.', 'error'); return; }
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('loading'); btn.disabled = true;
+    /* ذخیره‌ی خلاصه برای صفحه‌ی تشکر */
+    try {
+      sessionStorage.setItem('afLastMsg', JSON.stringify({
+        name: name.value.trim(),
+        subject: document.getElementById('fSubject').value.trim(),
+        time: Date.now()
+      }));
+    } catch(err){}
+    setTimeout(() => {
+      location.href = 'thank-you.html';
+    }, 1000);
+  });
+  form.querySelectorAll('input, textarea').forEach(i => i.addEventListener('input', () => {
+    i.classList.remove('invalid');
+    const err = i.parentElement.querySelector('.f-err');
+    if (err) err.textContent = '';
+  }));
+})();
+</script>
+</body>
+</html>

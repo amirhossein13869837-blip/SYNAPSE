@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درباره من | کامیار احمدی</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.a-wrap{max-width:820px;margin:0 auto}
+.art-title{font-family:var(--fh);font-weight:900;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.6;margin:16px 0 18px}
+.art-meta{display:flex;flex-wrap:wrap;align-items:center;gap:22px;font-size:13.5px;color:var(--text-2)}
+.art-meta .av{display:flex;align-items:center;gap:10px}
+.art-meta .av img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2.5px solid var(--teal)}
+.art-meta .av b{font-size:14.5px;display:block}
+.art-meta .av small{font-size:12px}
+.art-cover{border-radius:26px;overflow:hidden;border:6px solid #fff;box-shadow:var(--sh-lg);margin:36px 0 46px}
+.art-cover img{aspect-ratio:16/8;object-fit:cover;width:100%}
+.art-body h2{font-family:var(--fh);font-weight:900;font-size:clamp(1.35rem,3vw,1.9rem);margin:44px 0 16px;display:flex;align-items:center;gap:13px}
+.art-body h2::before{content:'';width:9px;height:9px;background:var(--gold);transform:rotate(45deg);flex:none}
+.art-body p{color:var(--text-2);margin-bottom:18px}
+.art-body p strong{color:var(--text)}
+.art-body ul{margin:0 0 18px;display:grid;gap:10px}
+.art-body ul li{display:flex;gap:12px;color:var(--text-2);font-size:15.5px}
+.art-body ul li i{color:var(--teal);font-size:18px;flex:none;margin-top:5px}
+.art-quote{margin:34px 0;padding:28px 34px;border-radius:20px;border-right:4px solid var(--gold);background:var(--mint);font-family:var(--fh);font-weight:700;font-size:17px;line-height:2;color:var(--text)}
+.art-code{direction:ltr;text-align:left;background:var(--navy-deep);color:#CFE8E6;border-radius:18px;padding:24px 28px;font-family:ui-monospace,Consolas,monospace;font-size:13.5px;line-height:2;overflow-x:auto;margin:26px 0 30px;white-space:pre}
+.art-code .k{color:var(--teal)}.art-code .s{color:#A8D08D}.art-code .c{color:#7FA5AF;font-style:italic}
+.note-box{display:flex;gap:15px;padding:22px 26px;border-radius:18px;background:rgba(232,197,71,.12);border:1.5px dashed rgba(201,162,39,.5);margin:28px 0}
+.note-box i{font-size:22px;color:var(--gold);flex:none;margin-top:4px}
+.note-box p{margin:0;font-size:14.5px;color:var(--text)}
+.art-img{margin:30px 0;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:var(--sh-sm)}
+.art-img img{aspect-ratio:16/9;object-fit:cover}
+.art-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:44px}
+.art-tags span{font-size:13px;font-weight:600;padding:6px 16px;border-radius:100px;border:1px solid var(--border);color:var(--text-2)}
+.share-row{display:flex;align-items:center;gap:11px;margin-top:26px;flex-wrap:wrap}
+.share-row small{color:var(--text-2);font-size:13.5px;margin-left:6px}
+.share-btn{width:42px;height:42px;border-radius:12px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--text-2);transition:all .3s}
+.share-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.author-card{display:flex;gap:20px;align-items:center;padding:28px 30px;border-radius:24px;margin-top:56px}
+.author-card img{width:74px;height:74px;border-radius:50%;object-fit:cover;border:3px solid var(--teal)}
+.author-card h4{font-family:var(--fh);font-weight:800;font-size:17px}
+.author-card p{font-size:14px;color:var(--text-2);margin:4px 0 10px}
+.rel-head{margin:64px 0 24px;font-family:var(--fh);font-weight:900;font-size:1.5rem}
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.rel-card{border-radius:22px;overflow:hidden;display:flex;transition:transform .45s var(--ease),box-shadow .45s}
+.rel-card:hover{transform:translateY(-7px);box-shadow:var(--sh-lg)}
+.rel-card .rm{width:38%;flex:none}
+.rel-card .rm img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/3.2}
+.rel-card .rb{padding:20px 22px;display:flex;flex-direction:column;gap:7px}
+.rel-card .rb small{font-size:12px;color:var(--text-2)}
+.rel-card .rb h4{font-family:var(--fh);font-weight:800;font-size:15.5px;line-height:1.7}
+@media(max-width:640px){.rel-grid{grid-template-columns:1fr}.rel-card{flex-direction:column}.rel-card .rm{width:100%;aspect-ratio:16/8}}
+</style>
+</head>
+<body class="locked">
+
+<div class="ld-a"></div>
+<div class="ld-m"><span class="ld-logo">ک</span></div>
+
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"><span id="cLabel"></span></div>
+<div class="cursor-ripple" id="cRip" aria-hidden="true"></div>
+<div class="progress"><i id="pBar"></i></div>
+
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link ">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link active">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="index.html#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a class="m-link" href="index.html"><small>۰۱</small> خانه</a>
+  <a class="m-link" href="about.html"><small>۰۲</small> درباره من</a>
+  <a class="m-link" href="works.html"><small>۰۳</small> نمونه‌کارها</a>
+  <a class="m-link" href="blog.html"><small>۰۴</small> وبلاگ</a>
+  <a class="m-link" href="resume.html"><small>۰۵</small> رزومه</a>
+  <a class="m-link" href="index.html#contact"><small>۰۶</small> تماس</a>
+  <div class="m-cta"><a href="index.html#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+<section class="ph" style="padding-bottom:20px">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="a-wrap">
+      <nav class="crumb"><a href="index.html">خانه</a><i class="ri-arrow-left-s-line"></i><a href="blog.html">وبلاگ</a><i class="ri-arrow-left-s-line"></i><b>توسعه وب</b></nav>
+      <h1 class="art-title" data-split>آینده‌ی CSS؛ از Container Query تا <span class="ltr">:has()</span></h1>
+      <div class="art-meta reveal">
+        <div class="av"><img src="images/image 1.jpg" alt="کامیار"><div><b>کامیار احمدی</b><small>نویسنده</small></div></div>
+        <span><i class="ri-calendar-line"></i> ۱۲ آبان ۱۴۰۳</span>
+        <span><i class="ri-time-line"></i> ۸ دقیقه مطالعه</span>
+        <span><i class="ri-price-tag-3-line"></i> توسعه وب</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="a-wrap">
+      <div class="art-cover reveal"><img src="images/image 7.jpg" alt="کاور مقاله"></div>
+      <article class="art-body reveal">
+        <p>اگر پنج سال پیش به من می‌گفتند روزی با CSS خالص چیزهایی بسازیم که قبلاً به جاوااسکریپت وابسته بودند، می‌خندیدم. اما این دقیقاً اتفاقی است که افتاده: <strong>CSS دیگر ابزارِ «رنگ و خط» نیست؛ یک زبان منطقی و کامپوننت‌محور شده است.</strong></p>
+
+        <h2>مشکل قدیمی: «مخاطبِ استایل کیست؟»</h2>
+        <p>سال‌ها تصمیم‌های استایل ما بر اساس اندازه‌ی <strong>صفحه</strong> گرفته می‌شد؛ اما کامپوننت‌ها در یک صفحه‌ی واحد، فضاهای کاملاً متفاوتی دارند. یک کارت محصول، در سایدبار باریک و در گرید اصلی، دو موجودِ متفاوت است — و Media Query از پسِ این تمایز برنمی‌آمد.</p>
+
+        <h2>Container Query: استایلِ کامپوننت‌محور</h2>
+        <p>حالا می‌توانیم بگوییم «اگر <strong>ظرفِ</strong> این کامپوننت کم‌عرض بود، خودش را مرتب کن» — فارغ از اینکه صفحه چقدر عرض دارد:</p>
+        <div class="art-code"><span class="c">/* کامپوننت خودش به فضایش واکنش نشان می‌دهد */</span>
+.card { container-type: inline-size; }
+
+<span class="k">@container</span> (min-width: <span class="s">420px</span>) {
+  .card { display: grid; grid-template-columns: <span class="s">1fr 2fr</span>; }
+}</div>
+
+        <h2>:has() — بالاخره انتخابگرِ والد!</h2>
+        <p>عنوانِ آرزوی چند دهه‌ی توسعه‌دهنده‌ها: <strong>انتخابِ والد بر اساس فرزند</strong>. فرمِ که فیلد خطا دارد، بدون حتی یک خط جاوااسکریپت قرمز می‌شود:</p>
+        <div class="art-code"><span class="c">/* فرمی که درونش خطا هست، خودش هشداری می‌شود */</span>
+form:has(input.invalid) { border-color: <span class="s">crimson</span>; }
+
+<span class="c">/* و البته ترکیب طلایی: */</span>
+.card:has(img) { padding-top: <span class="s">0</span>; }</div>
+
+        <blockquote class="art-quote">قاعده‌ی من ساده شده: هر جا می‌خواستم برای استایل، جاوااسکریپت بنویسم — اول یک بار CSS مدرن را چک می‌کنم. تقریباً همیشه جواب آنجاست.</blockquote>
+
+        <h2>کاربردهای واقعی که همین امروز استفاده می‌کنم</h2>
+        <ul>
+          <li><i class="ri-check-double-line"></i>کارت‌های واکنش‌گرا در سایدبار و بدنه‌ی اصلی، با یک کامپوننت واحد</li>
+          <li><i class="ri-check-double-line"></i>هاورِ والد هنگام فوکوسِ فرزند، بدون JS و بدون aria خلاقانه‌سازی</li>
+          <li><i class="ri-check-double-line"></i>لیست‌هایی که وقتی خالی می‌شوند، حالت خالی خودشان را نشان می‌دهند</li>
+          <li><i class="ri-check-double-line"></i>تعویض خودکار جهت‌ها در ترجمه‌های چپ‌به‌راست با logical properties</li>
+        </ul>
+
+        <div class="note-box"><i class="ri-lightbulb-flash-line"></i><p><strong>نکته‌ی مهم:</strong> پشتیبانی مرورگرها از هر دو ویژگی الان عالی است — Chrome، Safari و Firefox همه پشتیبانی می‌کنند. عذرِ «هنوز زود است» دیگر معتبر نیست!</p></div>
+
+        <h2>پیش از پایان</h2>
+        <p>این‌ها فقط سرِ نمایشی از دنیای CSS مدرن‌اند؛ :nth-of-syntaxهای منطقی، @scope، پالت‌های رنگ نسبی و ده‌ها چیز دیگر هم در راه‌اند. پیام اصلی این است: <strong>مرز میان «استایل» و «رفتار» دارد جابه‌جا می‌شود</strong> — و به نفعِ کاربر و سرعت است که جابه‌جا می‌شود.</p>
+        <p>اگر این یادداشت برایتان مفید بود، در خبرنامه‌ی وبلاگ عضو شوید تا نوشته‌های بعدی را از دست ندهید. حالا بروید و یک Container Query بنویسید — قول می‌دهم وابسته شوید!</p>
+      </article>
+
+      <div class="art-tags reveal">
+        <span>CSS</span><span>Container Query</span><span>:has()</span><span>فرانت‌اند</span><span>وب مدرن</span>
+      </div>
+
+      <div class="share-row reveal">
+        <small>اشتراک‌گذاری:</small>
+        <button class="share-btn" id="copyLink" aria-label="کپی لینک"><i class="ri-links-line"></i></button>
+        <a class="share-btn demo-link" href="#" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        <a class="share-btn demo-link" href="#" aria-label="توییتر"><i class="ri-twitter-x-line"></i></a>
+        <a class="share-btn demo-link" href="#" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+      </div>
+
+      <div class="author-card glass spot reveal">
+        <img src="images/image 1.jpg" alt="کامیار احمدی">
+        <div>
+          <h4>کامیار احمدی</h4>
+          <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ بیش از ۵ سال است که وب می‌سازد و درباره‌ش می‌نویسد.</p>
+          <a href="about.html" class="p-more" style="color:var(--teal);font-weight:700;font-size:14px">بیشتر درباره‌ی من <i class="ri-arrow-left-line"></i></a>
+        </div>
+      </div>
+
+      <h3 class="rel-head reveal">نوشته‌های مرتبط</h3>
+      <div class="rel-grid">
+        <a href="blog-single.html" class="rel-card glass spot reveal" data-cursor="خواندن">
+          <div class="rm"><img src="images/image 2.jpg" alt=""></div>
+          <div class="rb"><small>توسعه وب — ۸ دقیقه</small><h4>Core Web Vitals؛ راهنمای بقا برای فرانت‌اندها</h4></div>
+        </a>
+        <a href="blog-single.html" class="rel-card glass spot reveal" style="--d:.1s" data-cursor="خواندن">
+          <div class="rm"><img src="images/image 5.jpg" alt=""></div>
+          <div class="rb"><small>طراحی — ۶ دقیقه</small><h4>طراحی راست‌به‌چپ؛ غفلت‌هایی که همه می‌بینیم</h4></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <h2>حال که مرا می‌شناسید…<br>بیایید با هم <span class="outline-w">بسازیم</span></h2>
+      <a href="index.html#contact" class="btn btn-gold magnetic">شروع گفت‌وگو <i class="ri-chat-smile-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-mark" style="background:var(--teal);color:#fff">ک</span><span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span></a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>صفحات</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="index.html#services">توسعه فرانت‌اند</a></li>
+          <li><a href="index.html#services">طراحی رابط کاربری</a></li>
+          <li><a href="index.html#services">موشن و انیمیشن</a></li>
+          <li><a href="index.html#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="index.html#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+ $('#copyLink').addEventListener('click',()=>{
+const url=location.href;
+if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>toast('لینک مقاله کپی شد!'));
+else toast('کپی لینک در این مرورگر پشتیبانی نمی‌شود.','error')});
+</script>
+</body>
+</html>

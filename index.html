@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کامیار احمدی | توسعه‌دهنده و طراح وب</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123B4A'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%2320B2AA' font-family='sans-serif' font-weight='bold'%3E%D9%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v7.3.0/dist/font-face.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body class="locked">
+
+<!-- ═══════════════ لودر: بوت شبکه‌ی عصبی ═══════════════ -->
+<div class="ld-accent" id="ldAccent"></div>
+<div class="ld-main" id="ldMain">
+  <div class="ld-stage">
+    <canvas id="ldNet" aria-hidden="true"></canvas>
+    <span class="ld-logo">ک</span>
+  </div>
+  <div class="ld-inner">
+    <div class="ld-name"><span style="--i:0">کامیار</span><span style="--i:1">احمدی</span></div>
+    <div class="ld-sub">در حال آماده‌سازی شبکه‌ی عصبی…</div>
+  </div>
+  <div class="ld-status" id="ldStatus">اتصال نورون‌ها…</div>
+  <div class="ld-count" id="ldCount">۰٪</div>
+</div>
+
+<!-- کرسر سفارشی (نسخه‌ی کشسان + موج کلیک) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"><span id="cursorLabel"></span></div>
+<div class="cursor-ripple" id="cursorRipple" aria-hidden="true"></div>
+
+<!-- نوار پیشرفت -->
+<div class="progress"><i id="progressBar"></i></div>
+
+<!-- ═══════════════ هدر ═══════════════ -->
+<header class="header" id="header">
+  <div class="nav-shell">
+    <div class="nav-wrap">
+      <a href="#home" class="logo">
+        <span class="logo-mark">ک</span>
+        <span class="logo-text">کامیار<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav">
+       <a href="index.html" class="nav-link active">خانه</a>
+        <a href="about.html" class="nav-link">درباره</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="contact.html" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions" style="display:flex;align-items:center;gap:12px">
+        <a href="#contact" class="btn btn-primary btn-sm magnetic">استخدام من</a>
+        <button class="burger" id="burger" aria-label="منو"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- منوی موبایل با شبکه عصبی -->
+<div class="mobile-menu">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <a href="index.html" class="nav-link">خانه</a>
+        <a href="about.html" class="nav-link">درباره</a>
+        <a href="services.html" class="nav-link">خدمات</a>
+        <a href="works.html" class="nav-link">نمونه‌کارها</a>
+        <a href="blog.html" class="nav-link">وبلاگ</a>
+        <a href="resume.html" class="nav-link">رزومه</a>
+        <a href="contact.html" class="nav-link">تماس</a>
+  <div class="m-cta"><a href="#contact" class="btn btn-primary">استخدام من <i class="ri-arrow-left-line"></i></a></div>
+</div>
+
+<!-- ═══════════════ ۱. هیرو ═══════════════ -->
+<section id="home" class="hero">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-badge hr" style="--d:.15s"><span class="dot"></span> در دسترس برای پروژه‌های جدید</span>
+      <h1 class="hero-title">
+        <span class="hi hr" style="--d:.25s">سلام، من</span>
+        <span class="hr" style="--d:.35s">کامیار</span>
+        <span class="hr" style="--d:.45s"><span class="o-txt">احمدی</span><span class="gold-dot"></span></span>
+      </h1>
+      <div class="hero-type hr" style="--d:.58s">من یک <b id="typed"></b><span class="tw-caret"></span> هستم</div>
+      <p class="hero-text hr" style="--d:.68s">
+        بیش از ۵ سال است که وب‌سایت و محصول دیجیتال می‌سازم؛ جایی که طراحیِ دقیق به کدِ تمیز می‌رسد.
+        عاشق جزئیاتم — چون همان جزئیات‌اند که «اوکی» را از «عالی» جدا می‌کنند.
+      </p>
+      <div class="hero-cta hr" style="--d:.78s">
+        <a href="works.html" class="btn btn-primary magnetic">مشاهده نمونه‌کارها <i class="ri-arrow-left-line"></i></a>
+        <a href="contact.html" class="btn btn-outline magnetic">گفت‌وگو با من <i class="ri-chat-smile-2-line"></i></a>
+      </div>
+      <div class="hero-stats hr" style="--d:.9s">
+        <div class="hs"><b>۵<i>+</i></b><span>سال تجربه</span></div>
+        <span class="sep"></span>
+        <div class="hs"><b>۱۲۰<i>+</i></b><span>پروژه‌ی موفق</span></div>
+        <span class="sep"></span>
+        <div class="hs"><b>۸۵<i>+</i></b><span>مشتری راضی</span></div>
+      </div>
+    </div>
+
+    <!-- ترکیب شیشه‌ای معلق روی شبکه -->
+    <div class="hero-visual" aria-hidden="true">
+      <span class="hv-deco hv-ring" data-depth="1.5"></span>
+      <span class="hv-deco hv-plus" data-depth="2.2"><i class="ri-add-line float-c"></i></span>
+      <span class="hv-deco hv-sq" data-depth="1.8"></span>
+
+      <div class="hv-item hv-photo" data-depth=".6">
+        <div class="float-a">
+          <div class="hv-photo-in">
+            <img src="images/image 1.jpg" alt="کامیار احمدی">
+          </div>
+        </div>
+      </div>
+
+      <div class="hv-item hv-exp" data-depth="1.3">
+        <div class="glass hv-mini float-b">
+          <span class="mi"><i class="ri-medal-line"></i></span>
+          <div><b>۵+ سال</b><small>تجربه‌ی حرفه‌ای</small></div>
+        </div>
+      </div>
+
+      <div class="hv-item hv-rate" data-depth="1.7">
+        <div class="glass hv-mini float-d">
+          <span class="mi"><i class="ri-star-smile-line"></i></span>
+          <div><b>۴.۹ از ۵</b><small class="stars">★★★★★</small></div>
+        </div>
+      </div>
+
+      <div class="hv-item hv-code" data-depth="1.1">
+        <div class="glass hv-code float-c">
+          <div class="code-head"><i></i><i></i><i></i></div>
+          <div class="code">
+            <span class="c-k">const</span> <span class="c-f">neuralWeb</span> = () <span class="c-k">=&gt;</span> {<br>
+            &nbsp;&nbsp;<span class="c-k">return</span> <span class="c-s">"design × code"</span>;<br>
+            };
+          </div>
+        </div>
+      </div>
+
+      <div class="hv-item hv-orbit" data-depth=".9">
+        <div class="orbit-in float-b">
+          <svg viewBox="0 0 128 128">
+            <defs><path id="orbitPath" d="M64,64 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"></path></defs>
+            <text><textPath href="#orbitPath">آماده‌ی همکاری • پروژه‌ی جدید • بیایید بسازیم •</textPath></text>
+          </svg>
+          <i class="ri-sparkling-2-line"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">اسکرول کنید<span class="scroll-track"></span></div>
+</section>
+
+<!-- ═══════════════ ۲. مارکی بی‌نهایت ═══════════════ -->
+<div class="marquee" aria-hidden="true">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="mq-track" id="mqTrack">
+    <div class="mq-item">توسعه فرانت‌اند <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">طراحی رابط کاربری <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">موشن دیزاین <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">React و Next.js <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">تجربه کاربری <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">بهینه‌سازی سرعت <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">دیزاین سیستم <i class="ri-sparkling-2-fill"></i></div>
+    <div class="mq-item">کد تمیز و مقیاس‌پذیر <i class="ri-sparkling-2-fill"></i></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ۳. درباره من ═══════════════ -->
+<section id="about" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="sec-mark" aria-hidden="true">01</span>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <span class="about-deco-ring float-a"></span>
+        <span class="about-deco-plus float-c"><i class="ri-add-line"></i></span>
+        <div class="about-frame" data-tilt>
+          <img src="images/image 2.jpg" alt="کامیار احمدی در محیط کار">
+        </div>
+        <div class="about-badge float-b">
+          <i class="ri-rocket-2-line"></i>
+          <div><b><em>۵</em>+ سال</b><small>تجربه‌ی حرفه‌ای</small></div>
+        </div>
+      </div>
+      <div class="about-text reveal" style="--d:.15s">
+        <div class="sec-tag"><span class="n">۰۱</span><span class="l"></span><span>درباره من</span></div>
+        <h2 class="sec-title" data-split>آشنایی بیشتر <em>با من</em></h2>
+        <p>
+          سلام! من کامیار هستم؛ <strong>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری</strong>. مسیر من از یک
+          کنجکاوی ساده شروع شد — «این دکمه چطور کار می‌کند؟» — و حالا به شغلی رسیده که هر روز صبح با
+          انرژی سراغش می‌روم.
+        </p>
+        <p>
+          تخصص من لینکِ بین <strong>زیبایی</strong> و <strong>مهندسی</strong> است: رابط‌هایی که چشم‌نوازند،
+          کدهایی که تمیز و قابل توسعه‌اند، و محصولاتی که کاربر واقعاً دوستشان دارد.
+        </p>
+        <ul class="about-rows">
+          <li><span>نام و نام خانوادگی</span><strong>کامیار احمدی</strong></li>
+          <li><span>ایمیل</span><strong class="ltr">amirhossein.f.dev@gmail.com</strong></li>
+          <li><span>موقعیت</span><strong>تهران، ایران — همکاری ریموت</strong></li>
+          <li><span>وضعیت</span><span class="status-pill"><i class="ri-circle-fill"></i> آماده‌ی پروژه‌ی جدید</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۴. خدمات ═══════════════ -->
+<section id="services" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="sec-mark" aria-hidden="true">02</span>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-tag"><span class="n">۰۲</span><span class="l"></span><span>خدمات</span></div>
+      <h2 class="sec-title" data-split>چطور می‌توانم <em>کمک کنم</em>؟</h2>
+      <p class="sec-desc">از ایده تا محصول نهایی؛ در هر مرحله از مسیر، یک قدم جلوترِ شما هستم.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card glass spot f reveal">
+        <span class="svc-icon"><i class="ri-window-2-line"></i></span>
+        <h3>توسعه فرانت‌اند</h3>
+        <p>پیاده‌سازی رابط‌های سریع، واکنش‌گرا و دقیق با تکنولوژی‌های مدرن وب؛ کدی تمیز که سال‌ها بعد هم با افتخار بازش می‌کنید.</p>
+        <div class="svc-tags"><span>React</span><span>Next.js</span><span>Vanilla JS</span><span>Tailwind</span></div>
+       <a href="about.html"> <span class="svc-arrow"><i class="ri-arrow-left-up-line"></i></span></a>
+        <span class="svc-num">01</span>
+      </div>
+      <div class="svc-card glass spot s reveal" style="--d:.1s">
+        <span class="svc-icon"><i class="ri-palette-line"></i></span>
+        <h3>طراحی رابط کاربری</h3>
+        <p>رابط‌هایی که در نگاه اول قابل فهم و در استفاده لذت‌بخش‌اند؛ از وایرفریم تا دیزاین‌سیستم کامل.</p>
+        <a href="about.html"> <span class="svc-arrow"><i class="ri-arrow-left-up-line"></i></span></a>
+        <span class="svc-num">02</span>
+      </div>
+      <div class="svc-card glass spot s reveal" style="--d:.05s">
+        <span class="svc-icon"><i class="ri-magic-line"></i></span>
+        <h3>موشن و انیمیشن</h3>
+        <p>حرکتِ درست، معنا می‌سازد؛ انیمیشن‌های ظریف و هدفمند که محصول را زنده می‌کنند.</p>
+        <a href="about.html"> <span class="svc-arrow"><i class="ri-arrow-left-up-line"></i></span></a>
+        <span class="svc-num">03</span>
+      </div>
+      <div class="svc-card glass spot s reveal" style="--d:.12s">
+        <span class="svc-icon"><i class="ri-speed-up-line"></i></span>
+        <h3>بهینه‌سازی و سرعت</h3>
+        <p>کاهش زمان بارگذاری و بهبود Core Web Vitals؛ تجربه‌ای که هم کاربر و هم گوگل دوستش دارد.</p>
+        <a href="about.html"> <span class="svc-arrow"><i class="ri-arrow-left-up-line"></i></span></a>
+        <span class="svc-num">04</span>
+      </div>
+      <div class="svc-card glass spot s reveal" style="--d:.19s">
+        <span class="svc-icon"><i class="ri-lightbulb-flash-line"></i></span>
+        <h3>مشاوره و بازطراحی</h3>
+        <p>بررسی عمیق محصول فعلی و نقشه‌ی راهی روشن برای رسیدن از «اوکیه» به «عالیه».</p>
+        <a href="about.html"> <span class="svc-arrow"><i class="ri-arrow-left-up-line"></i></span></a>
+        <span class="svc-num">05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۵. مهارت‌ها ═══════════════ -->
+<section id="skills" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="sec-mark" aria-hidden="true">03</span>
+  <div class="container">
+    <div class="skills-grid">
+      <div class="reveal">
+        <div class="sec-tag"><span class="n">۰۳</span><span class="l"></span><span>مهارت‌ها</span></div>
+        <h2 class="sec-title" data-split>ابزارهای <em>جعبه‌ابزار</em> من</h2>
+        <p class="sec-desc">
+          ابزار فقط وسیله است؛ مهم این است که با هر ابزار، نتیجه‌ی درست ساخته شود.
+          این‌ها همیشگی‌ترین‌های کار روزمره‌ی من هستند — روی هر کدام نگه دارید تا بلند شوند!
+        </p>
+        <div class="chips-cloud">
+          <span class="chip"><i class="ri-github-line"></i>Git</span>
+          <span class="chip"><i class="ri-pen-nib-line"></i>Figma</span>
+          <span class="chip"><i class="ri-reactjs-line"></i>React</span>
+          <span class="chip"><i class="ri-nextjs-line"></i>Next.js</span>
+          <span class="chip"><i class="ri-tailwind-css-line"></i>Tailwind</span>
+          <span class="chip"><i class="ri-code-s-slash-line"></i>TypeScript</span>
+          <span class="chip"><i class="ri-css3-line"></i>Sass</span>
+          <span class="chip"><i class="ri-rocket-line"></i>Vite</span>
+          <span class="chip"><i class="ri-wordpress-line"></i>WordPress</span>
+        </div>
+      </div>
+      <div class="skills-list">
+        <div class="skill-row reveal" data-val="98">
+          <div class="skill-ring">
+            <svg width="86" height="86" viewBox="0 0 86 86">
+              <circle class="sr-bg" cx="43" cy="43" r="37"></circle>
+              <circle class="sr-fill" cx="43" cy="43" r="37"></circle>
+            </svg>
+            <span class="ring-num">۰٪</span>
+          </div>
+          <div class="skill-body">
+            <h3>HTML / CSS</h3>
+            <p>بنیانِ هر پروژه‌ی وب؛ معنادار، واکنش‌گرا و دقیق تا آخرین پیکسل</p>
+          </div>
+        </div>
+        <div class="skill-row reveal" style="--d:.08s" data-val="95">
+          <div class="skill-ring">
+            <svg width="86" height="86" viewBox="0 0 86 86">
+              <circle class="sr-bg" cx="43" cy="43" r="37"></circle>
+              <circle class="sr-fill" cx="43" cy="43" r="37"></circle>
+            </svg>
+            <span class="ring-num">۰٪</span>
+          </div>
+          <div class="skill-body">
+            <h3>جاوااسکریپت</h3>
+            <p>منطق و تعامل؛ از اسکریپت‌های کوچک تا معماری‌های پیچیده</p>
+          </div>
+        </div>
+        <div class="skill-row reveal" style="--d:.16s" data-val="90">
+          <div class="skill-ring">
+            <svg width="86" height="86" viewBox="0 0 86 86">
+              <circle class="sr-bg" cx="43" cy="43" r="37"></circle>
+              <circle class="sr-fill" cx="43" cy="43" r="37"></circle>
+            </svg>
+            <span class="ring-num">۰٪</span>
+          </div>
+          <div class="skill-body">
+            <h3>React / Next.js</h3>
+            <p>کامپوننت‌های مقیاس‌پذیر برای محصولاتی که بزرگ می‌شوند</p>
+          </div>
+        </div>
+        <div class="skill-row reveal" style="--d:.24s" data-val="92">
+          <div class="skill-ring">
+            <svg width="86" height="86" viewBox="0 0 86 86">
+              <circle class="sr-bg" cx="43" cy="43" r="37"></circle>
+              <circle class="sr-fill" cx="43" cy="43" r="37"></circle>
+            </svg>
+            <span class="ring-num">۰٪</span>
+          </div>
+          <div class="skill-body">
+            <h3>طراحی UI / UX</h3>
+            <p>زیباییِ کاربردی؛ طراحی برای انسان‌ها، نه فقط برای دیمو</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۶. نمونه‌کارها ═══════════════ -->
+<section id="works" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="sec-mark" aria-hidden="true">04</span>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center"><span class="n">۰۴</span><span class="l"></span><span>نمونه‌کارها</span></div>
+      <h2 class="sec-title" data-split>پروژه‌های <em>اخیر</em></h2>
+      <p class="sec-desc" style="margin:0 auto">گزیده‌ای از کارهایی که بهشان افتخار می‌کنم — روی تصاویر موس را حرکت دهید!</p>
+    </div>
+
+    <div class="work-row reveal" style="margin-top:80px">
+      <div class="work-media" data-tilt data-cursor="مشاهده">
+        <img src="images/image 3.png" alt="فروشگاه مدرن‌شاپ">
+        <div class="work-overlay"><a href="work-single.html"><span class="work-zoom"><i class="ri-arrow-left-up-line"></i></span></a></div>
+      </div>
+      <div class="work-info">
+        <span class="work-index">01</span>
+        <span class="work-cat"><i class="ri-shopping-bag-3-line"></i>وب‌سایت — فروشگاهی</span>
+        <h3>فروشگاه اینترنتی مدرن‌شاپ</h3>
+        <p>تجربه‌ی خرید یک‌صفحه‌ای برای برند پوشاک با سبد خرید زنده، انیمیشن‌های روان و نرخ تبدیل دو برابرشده پس از بازطراحی.</p>
+        <div class="work-tags"><span>Next.js</span><span>Tailwind</span><span>Framer Motion</span></div>
+        <a href="work-single.html" class="work-link demo-link">مشاهده‌ی پروژه <i class="ri-arrow-left-line"></i></a>
+      </div>
+    </div>
+
+    <div class="work-row reveal">
+      <div class="work-media" data-tilt data-cursor="مشاهده">
+        <img src="images/image 4.jpg" alt="داشبورد سنسا">
+        <div class="work-overlay"><a href="work-single.html"><span class="work-zoom"><i class="ri-arrow-left-up-line"></i></span></a></div>
+      </div>
+      <div class="work-info">
+        <span class="work-index">02</span>
+        <span class="work-cat"><i class="ri-dashboard-3-line"></i>رابط کاربری — داشبورد</span>
+        <h3>داشبورد تحلیلی سِنسا</h3>
+        <p>پنل مدیریت داده با نمودارهای تعاملی و حالت تاریک؛ طراحی‌شده برای تیم‌هایی که هر روز ساعت‌ها با آن کار می‌کنند.</p>
+        <div class="work-tags"><span>React</span><span>D3.js</span><span>Design System</span></div>
+        <a href="work-single.html" class="work-link demo-link">مشاهده‌ی پروژه <i class="ri-arrow-left-line"></i></a>
+      </div>
+    </div>
+
+    <div class="work-row reveal">
+      <div class="work-media" data-tilt data-cursor="مشاهده">
+        <img src="images/image 5.jpg" alt="لندینگ ابریک">
+        <div class="work-overlay"><a href="work-single.html"><span class="work-zoom"><i class="ri-arrow-left-up-line"></i></span></a></div>
+      </div>
+      <div class="work-info">
+        <span class="work-index">03</span>
+        <span class="work-cat"><i class="ri-magic-line"></i>موشن — لندینگ</span>
+        <h3>لندینگ محصول ابریک</h3>
+        <p>صفحه‌ی معرفی SaaS با روایت اسکرولی و انیمیشن‌های هماهنگ با محتوا؛ صفحای که خودِ محصول را توضیح می‌دهد.</p>
+        <div class="work-tags"><span>GSAP</span><span>ScrollTrigger</span><span>SVG</span></div>
+        <a href="work-single.html" class="work-link demo-link">مشاهده‌ی پروژه <i class="ri-arrow-left-line"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۷. آمار ═══════════════ -->
+<section class="stats" id="stats">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <i class="ri-briefcase-4-line"></i>
+      <div class="stat-num"><span data-count="120" data-suffix="+">۰</span></div>
+      <div class="stat-label">پروژه‌ی تکمیل‌شده</div>
+    </div>
+    <div class="stat reveal" style="--d:.1s">
+      <i class="ri-user-smile-line"></i>
+      <div class="stat-num"><span data-count="85" data-suffix="+">۰</span></div>
+      <div class="stat-label">مشتری راضی</div>
+    </div>
+    <div class="stat reveal" style="--d:.2s">
+      <i class="ri-time-line"></i>
+      <div class="stat-num"><span data-count="5" data-suffix="+">۰</span></div>
+      <div class="stat-label">سال تجربه‌ی حرفه‌ای</div>
+    </div>
+    <div class="stat reveal" style="--d:.3s">
+      <i class="ri-medal-line"></i>
+      <div class="stat-num"><span data-count="98" data-suffix="٪">۰</span></div>
+      <div class="stat-label">میانگین رضایت</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۸. مسیر حرفه‌ای (دوطرفه) ═══════════════ -->
+<section id="journey" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center"><span class="n">۰۵</span><span class="l"></span><span>سابقه</span></div>
+      <h2 class="sec-title" data-split>مسیر <em>حرفه‌ای</em> من</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">۱۴۰۳ — اکنون</span>
+          <h3>توسعه‌دهنده‌ی ارشد فرانت‌اند</h3>
+          <h4>شرکت فناوری داده‌پرداز</h4>
+          <p>رهبری فنی تیم ۵ نفره، طراحی دیزاین‌سیستم مشترک و بهبود ۴۰٪ سرعت محصولات شرکت.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="--d:.08s">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">۱۴۰۱ — ۱۴۰۳</span>
+          <h3>توسعه‌دهنده‌ی فرانت‌اند</h3>
+          <h4>آژانس دیجیتال رایکا</h4>
+          <p>طراحی و توسعه‌ی بیش از ۴۰ وب‌سایت برای برندهای داخلی؛ از فروشگاه آنلاین تا پنل مدیریتی.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="--d:.08s">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">۱۳۹۹ — ۱۴۰۱</span>
+          <h3>طراح رابط کاربری</h3>
+          <h4>استودیو پیکسل‌رنگ</h4>
+          <p>همکاری با تیم‌های محصول برای طراحی اپ‌های مالی و آموزشی؛ از تحقیق کاربر تا تست نهایی.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="--d:.08s">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">۱۳۹۸</span>
+          <h3>شروع مسیر</h3>
+          <h4>فریلنس</h4>
+          <p>اولین پروژه‌های جدی؛ شب‌های طولانی، باگ‌های فراوان و عاشق‌شدنِ واقعی با وب.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۹. نظرات ═══════════════ -->
+<section id="testimonials" class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center"><span class="n">۰۶</span><span class="l"></span><span>نظرات</span></div>
+      <h2 class="sec-title" data-split>مشتریان چه <em>می‌گویند</em>؟</h2>
+    </div>
+    <div class="t-slider reveal" style="--d:.1s">
+      <i class="ri-double-quotes-r t-quote"></i>
+      <div class="t-slides">
+        <div class="t-slide active">
+          <p class="t-text">همکاری با کامیار یکی از بهترین تصمیم‌های تیم ما بود؛ دقیق، خلاق و فوق‌العاده منظم. پروژه زودتر از موعد و با کیفیتی بالاتر از انتظار تحویل شد.</p>
+          <div class="t-person">
+            <img src="images/image 9.jpg" alt="علی محمدی">
+            <div><strong>علی محمدی</strong><span>مدیر محصول، استارتاپ دِی</span></div>
+          </div>
+          <div class="t-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        </div>
+        <div class="t-slide">
+          <p class="t-text">فروشگاه ما بعد از بازطراحی کامیار تقریباً دو برابر شد. به‌جز ظاهر زیبا، سرعت و تجربه‌ی کاربری واقعاً زمین تا آسمان فرق کرد.</p>
+          <div class="t-person">
+            <img src="images/image 10.jpg" alt="رضا کریمی">
+            <div><strong>رضا کریمی</strong><span>بنیان‌گذار فروشگاه مدرن‌شاپ</span></div>
+          </div>
+          <div class="t-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        </div>
+        <div class="t-slide">
+          <p class="t-text">چند سال است پروژه‌های فرانت‌اند شرکت را به کامیار می‌سپاریم. کدهایش تمیز، مستندسازی‌اش عالی و ارتباطش همیشه شفاف و صادقانه است.</p>
+          <div class="t-person">
+            <img src="images/image 11.jpg" alt="محمد تهرانی">
+            <div><strong>محمد تهرانی</strong><span>مدیر فنی، تیم داده</span></div>
+          </div>
+          <div class="t-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        </div>
+        <div class="t-slide">
+          <p class="t-text">صبر، خلاقیت و تعهد؛ این سه کلمه توصیف کامیار است. هر بار که فکر می‌کردیم به بن‌بست رسیده‌ایم، او با یک ایده‌ی تازه راه را باز می‌کرد.</p>
+          <div class="t-person">
+            <img src="images/image 12.jpg" alt="احمد احمدی">
+            <div><strong>احمد احمدی</strong><span>مدیر بازاریابی، هلدینگ آریا</span></div>
+          </div>
+          <div class="t-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        </div>
+      </div>
+      <div class="t-controls">
+        <button class="t-btn" id="tPrev" aria-label="قبلی"><i class="ri-arrow-right-line"></i></button>
+        <div class="t-dots" id="tDots"></div>
+        <button class="t-btn" id="tNext" aria-label="بعدی"><i class="ri-arrow-left-line"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۱۰. وبلاگ ═══════════════ -->
+<section id="blog" class="section">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="sec-mark" aria-hidden="true">07</span>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-tag"><span class="n">۰۷</span><span class="l"></span><span>وبلاگ</span></div>
+      <h2 class="sec-title" data-split>آخرین <em>نوشته‌ها</em></h2>
+      <p class="sec-desc">هر از گاهی چیزهایی که یاد می‌گیرم اینجا می‌نویسم؛ شاید به درد شما هم بخورد.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card glass spot blog-featured reveal" data-cursor="خواندن">
+        <div class="blog-media">
+          <img src="images/image 6.jpg" alt="آینده CSS">
+          <span class="blog-badge">پیشنهاد سردبیر</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><i class="ri-price-tag-3-line"></i>توسعه وب</span>
+            <span><i class="ri-calendar-line"></i>۱۲ آبان ۱۴۰۳</span>
+            <span><i class="ri-time-line"></i>۸ دقیقه مطالعه</span>
+          </div>
+          <h3>آینده‌ی CSS؛ از Container Query تا <span class="ltr">:has()</span></h3>
+          <p>CSS دیگر آن زبان ساده‌ی استایل‌دهی نیست. نگاهی می‌اندازیم به امکاناتی که طرز فکر ما درباره‌ی کامپوننت‌ها را عوض کردند و چطور در پروژه‌های واقعی ازشان استفاده کنیم.</p>
+          <a href="blog-single.html" class="blog-more demo-link">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></a>
+        </div>
+      </article>
+      <div class="blog-col">
+        <article class="blog-card glass spot blog-mini reveal" style="--d:.12s" data-cursor="خواندن">
+          <div class="blog-media"><img src="images/image 7.jpg" alt="اصول UX"></div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="ri-price-tag-3-line"></i>تجربه کاربری</span>
+              <span><i class="ri-calendar-line"></i>۲۸ مهر</span>
+            </div>
+            <h3>۵ اصل UX که هر توسعه‌دهنده باید بلد باشد</h3>
+            <a href="blog-single.html" class="blog-more demo-link">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></a>
+          </div>
+        </article>
+        
+        <article class="blog-card glass spot blog-mini reveal" style="--d:.22s" data-cursor="خواندن">
+          <div class="blog-media"><img src="images/image 8.jpg" alt="جاوااسکریپت"></div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="ri-price-tag-3-line"></i>جاوااسکریپت</span>
+              <span><i class="ri-calendar-line"></i>۱۰ مهر</span>
+            </div>
+            <h3>جاوااسکریپت غیرهمگام؛ از Callback تا Async/Await</h3>
+            <a href="blog-single.html" class="blog-more demo-link">ادامه‌ی مطلب <i class="ri-arrow-left-line"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۱۱. سوالات متداول ═══════════════ -->
+<section id="faq" class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center"><span class="n">۰۸</span><span class="l"></span><span>سوالات متداول</span></div>
+      <h2 class="sec-title" data-split>شاید سوالِ <em>شما</em> هم اینجا باشد</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>فرآیند شروع همکاری چطور است؟</span><i class="ri-add-line"></i></button>
+        <div class="faq-a"><div><p>اول یک جلسه‌ی شناخت رایگان داریم تا هدف، مخاطب و دامنه‌ی پروژه روشن شود. بعد پیشنهاد فنی و زمان‌بندی شفاف ارائه می‌دهم و پس از تأیید، کار با نقشه‌ی راهی هفته‌به‌هفته شروع می‌شود.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.06s">
+        <button class="faq-q"><span>زمان تحویل پروژه‌ها چقدر است؟</span><i class="ri-add-line"></i></button>
+        <div class="faq-a"><div><p>بسته به حجم، معمولاً بین ۲ تا ۸ هفته. لندینگ‌های کوچک سریع‌تر و پلتفرم‌های بزرگ‌تر بیشتر زمان می‌برند؛ زمان‌بندی دقیق را قبل از شروع و به‌صورت مکتوب دریافت می‌کنید.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.12s">
+        <button class="faq-q"><span>هزینه‌ها چطور محاسبه می‌شود؟</span><i class="ri-add-line"></i></button>
+        <div class="faq-a"><div><p>پروژه‌ها به‌صورت ثابت و بر اساس دامنه‌ی کار قیمت می‌گیرند، نه ساعتی. بعد از جلسه‌ی اول، پیش‌فاکتور شفاف با مراحل پرداخت مشخص دریافت می‌کنید؛ بدون هزینه‌ی پنهانی.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.18s">
+        <button class="faq-q"><span>بعد از تحویل، پشتیبانی هم دارید؟</span><i class="ri-add-line"></i></button>
+        <div class="faq-a"><div><p>بله؛ همه‌ی پروژه‌ها یک ماه پشتیبانی رایگان دارند و بعد از آن می‌توانید قرارداد نگهداری ماهانه ببندید تا خیالتان همیشه راحت باشد.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.24s">
+        <button class="faq-q"><span>آیا به‌صورت ریموت هم همکاری می‌کنید؟</span><i class="ri-add-line"></i></button>
+        <div class="faq-a"><div><p>بله؛ بیشتر پروژه‌هایم با تیم‌هایی در تهران، اصفهان و حتی خارج از کشور به‌صورت کاملاً ریموت انجام شده. فرآیندها طوری تنظیم شده‌اند که فاصله هیچ‌وقت حس نشود.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ انتخاب تم رنگی ═══════════════ -->
+<section id="themes" class="section" style="padding-top:0">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center"><span class="n">✦</span><span class="l"></span><span>شخصی‌سازی</span></div>
+      <h2 class="sec-title" data-split>سایت را به <em>سلیقه‌ی خودت</em> بپوشان</h2>
+      <p class="sec-desc" style="margin:0 auto">نه تمِ آماده؛ با یک کلیک همه‌چیز عوض می‌شود — دکمه‌ها، پس‌زمینه‌ها و حتی رنگِ شبکه‌ی عصبی. انتخابت ذخیره می‌شود و در تمام صفحات همین می‌ماند.</p>
+    </div>
+    <div class="tc-grid">
+      <button class="tc reveal" data-theme="turquoise" data-mode="روشن" data-cursor="اعمال" style="--p-navy:#123B4A;--p-bg:#F8FAF7;--p-main:#20B2AA;--p-hover:#8FBE73;--p-gold:#E8C547">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>فیروزه</b><small>امضای اصلی سایت — خنک و مطمئن</small>
+          <span class="tc-sw"><i style="background:#123B4A"></i><i style="background:#20B2AA"></i><i style="background:#8FBE73"></i><i style="background:#E8C547"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="sunset" data-mode="روشن" data-cursor="اعمال" style="--d:.08s;--p-navy:#43291F;--p-bg:#FBF5EE;--p-main:#E06A3C;--p-hover:#D99A3D;--p-gold:#F2C14E">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>غروب</b><small>گرم و پرانرژی — برای روح‌های شجاع</small>
+          <span class="tc-sw"><i style="background:#43291F"></i><i style="background:#E06A3C"></i><i style="background:#D99A3D"></i><i style="background:#F2C14E"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="violet" data-mode="روشن" data-cursor="اعمال" style="--d:.16s;--p-navy:#2E2750;--p-bg:#F9F8FC;--p-main:#7C6BE8;--p-hover:#9F7FE0;--p-gold:#F2C14E">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>شبنم</b><small>لطیف و رؤیایی — با ته‌مایه‌ی بنفش</small>
+          <span class="tc-sw"><i style="background:#2E2750"></i><i style="background:#7C6BE8"></i><i style="background:#9F7FE0"></i><i style="background:#F2C14E"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="emerald" data-mode="روشن" data-cursor="اعمال" style="--d:.24s;--p-navy:#1B3A31;--p-bg:#F6FAF6;--p-main:#2FA37A;--p-hover:#7BB548;--p-gold:#E8C547">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>زمرد</b><small>طبیعی و آرام — مثل قلب جنگل</small>
+          <span class="tc-sw"><i style="background:#1B3A31"></i><i style="background:#2FA37A"></i><i style="background:#7BB548"></i><i style="background:#E8C547"></i></span></span>
+      </button>
+            <button class="tc reveal" data-theme="ocean" data-mode="روشن" data-cursor="اعمال" style="--d:.08s;--p-navy:#16405C;--p-bg:#EFF6FB;--p-main:#1F7EC2;--p-hover:#3FB6C9;--p-gold:#E8C547">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>اقیانوس</b><small>آبی کلاسیک وب — انتخابِ شخصی من</small>
+          <span class="tc-sw"><i style="background:#16405C"></i><i style="background:#1F7EC2"></i><i style="background:#3FB6C9"></i><i style="background:#E8C547"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="peach" data-mode="پاستلی" data-cursor="اعمال" style="--d:.16s;--p-navy:#7E6560;--p-bg:#FDF4F1;--p-main:#E07F90;--p-hover:#E8A878;--p-gold:#EFC97E">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>گلبهی</b><small>پاستلی گرم — نرم مثل عکس‌های قدیمی</small>
+          <span class="tc-sw"><i style="background:#7E6560"></i><i style="background:#E07F90"></i><i style="background:#E8A878"></i><i style="background:#EFC97E"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="mist" data-mode="پاستلی" data-cursor="اعمال" style="--d:.24s;--p-navy:#5E7590;--p-bg:#F3F7FA;--p-main:#6E9BC9;--p-hover:#A8D8C8;--p-gold:#EFC97E">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>مه</b><small>پاستلی خنک — آرام مثل صبح ابری</small>
+          <span class="tc-sw"><i style="background:#5E7590"></i><i style="background:#6E9BC9"></i><i style="background:#A8D8C8"></i><i style="background:#EFC97E"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="night" data-mode="تیره" data-dark data-cursor="اعمال" style="--d:.32s;--p-navy:#93A7B5;--p-bg:#0E1721;--p-main:#29B8C6;--p-hover:#7FC98B;--p-gold:#E8C547">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>شبانه</b><small>تیره‌ی خفن — مخصوص شب‌بیدارها</small>
+          <span class="tc-sw"><i style="background:#0E1721"></i><i style="background:#29B8C6"></i><i style="background:#7FC98B"></i><i style="background:#E8C547"></i></span></span>
+      </button>
+      <button class="tc reveal" data-theme="galaxy" data-mode="تیره" data-dark data-cursor="اعمال" style="--d:.4s;--p-navy:#9C95C6;--p-bg:#141024;--p-main:#8F7FF0;--p-hover:#D982C8;--p-gold:#F2C14E">
+        <span class="tc-check"><i class="ri-check-line"></i></span>
+        <span class="tc-preview"><span class="tc-bar"></span><span class="tc-side"></span><span class="tc-lines"><i></i><i></i><i></i></span><span class="tc-btn"></span><span class="tc-dot"></span><span class="tc-dot2"></span></span>
+        <span class="tc-body"><b>کهکشان</b><small>تیره‌ی رؤیایی — بنفشِ پرستاره</small>
+          <span class="tc-sw"><i style="background:#141024"></i><i style="background:#8F7FF0"></i><i style="background:#D982C8"></i><i style="background:#F2C14E"></i></span></span>
+      </button>
+    </div>
+    <div class="theme-hint reveal"><i class="ri-information-line"></i> انتخابت یادگار می‌ماند؛ هر وقت خواستی برگرد به «فیروزه».</div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۱۲. تماس ═══════════════ -->
+<section id="contact" class="section contact">
+  <canvas class="net" data-net="light" aria-hidden="true"></canvas>
+  <span class="contact-deco float-a"></span>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="sec-tag"><span class="n">۰۹</span><span class="l"></span><span>تماس</span></div>
+        <h2 class="sec-title" data-split>بیایید <em>گفت‌وگو</em> کنیم</h2>
+        <p class="sec-desc">
+          ایده، سوال یا حتی یک «سلام» ساده؛ معمولاً در کمتر از ۲۴ ساعت پاسخ می‌دهم.
+          فرم را پر کنید یا مستقیم از راه‌های زیر در ارتباط باشید.
+        </p>
+        <div class="c-items">
+          <a class="c-item glass spot float-a" href="mailto:amirhossein.f.dev@gmail.com">
+            <span class="c-icon"><i class="ri-mail-line"></i></span>
+            <div><span class="c-label">ایمیل</span><strong class="ltr">amirhossein.f.dev@gmail.com</strong></div>
+          </a>
+          <a class="c-item glass spot float-c" href="tel:+989121234567">
+            <span class="c-icon"><i class="ri-phone-line"></i></span>
+            <div><span class="c-label">تلفن</span><strong>۰۹۱۲ ۱۲۳ ۴۵۶۷</strong></div>
+          </a>
+          <div class="c-item glass spot float-b">
+            <span class="c-icon"><i class="ri-map-pin-line"></i></span>
+            <div><span class="c-label">آدرس</span><strong>تهران، ایران — همکاری ریموت در کل جهان</strong></div>
+          </div>
+          <div class="c-item glass spot float-d">
+            <span class="c-icon"><i class="ri-time-line"></i></span>
+            <div><span class="c-label">ساعات پاسخگویی</span><strong>شنبه تا پنجشنبه، ۹ تا ۱۸</strong></div>
+          </div>
+        </div>
+        <div class="c-social">
+          <a class="social-link" href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a class="social-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a class="social-link" href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <form class="contact-form reveal" style="--d:.15s" id="contactForm" novalidate>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="fName">نام و نام خانوادگی</label>
+            <input type="text" id="fName" placeholder="مثلاً سارا محمدی" autocomplete="name">
+            <span class="f-err"></span>
+          </div>
+          <div class="f-group">
+            <label for="fEmail">ایمیل</label>
+            <input type="email" id="fEmail" placeholder="you@example.com" dir="ltr" style="text-align:left" autocomplete="email">
+            <span class="f-err"></span>
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="fSubject">موضوع</label>
+          <input type="text" id="fSubject" placeholder="مثلاً درخواست طراحی وب‌سایت شرکتی">
+          <span class="f-err"></span>
+        </div>
+        <div class="f-group">
+          <label for="fMsg">پیام شما</label>
+          <textarea id="fMsg" rows="5" placeholder="درباره‌ی پروژه یا سوالتان بنویسید..."></textarea>
+          <span class="f-err"></span>
+        </div>
+        <button type="submit" class="btn btn-primary magnetic" id="submitBtn">
+          <span class="btn-text">ارسال پیام</span>
+          <i class="ri-send-plane-line btn-icon" style="transform:scaleX(-1)"></i>
+          <span class="btn-spin"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ۱۳. فوتر ═══════════════ -->
+<footer class="footer">
+  <canvas class="net" data-net="dark" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="f-cta reveal">
+      <span class="cta-deco cd-1"><i class="ri-sparkling-line"></i></span>
+      <span class="cta-deco cd-2"><i class="ri-shape-line"></i></span>
+      <h2>ایده‌ای در ذهن دارید؟<br>بیایید با هم <span class="outline-w">بسازیمش</span></h2>
+      <a href="#contact" class="btn btn-gold magnetic">شروع پروژه <i class="ri-rocket-2-line"></i></a>
+    </div>
+    <div class="f-main">
+      <div class="f-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark" style="background:var(--teal);color:#fff">ک</span>
+          <span class="logo-text" style="color:#fff">کامیار<span class="logo-dot">.</span></span>
+        </a>
+        <p>توسعه‌دهنده‌ی فرانت‌اند و طراح رابط کاربری؛ سازنده‌ی تجربه‌های دیجیتالی که کاربران دوستشان دارند.</p>
+        <div class="f-social">
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="گیت‌هاب"><i class="ri-github-line"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="لینکدین"><i class="ri-linkedin-line"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="ri-instagram-line"></i></a>
+          <a href="https://t.me" target="_blank" rel="noopener" aria-label="تلگرام"><i class="ri-telegram-line"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="about.html">درباره من</a></li>
+          <li><a href="services.html">خدمات و قیمت‌ها</a></li>
+          <li><a href="works.html">نمونه‌کارها</a></li>
+          <li><a href="careers.html">همکاری با من</a></li>
+          <li><a href="contact.html">تماس</a></li>
+          <li><a href="blog.html">وبلاگ</a></li>
+          <li><a href="logos.html">برند های همکاری</a></li>
+          <li><a href="resume.html">رزومه</a></li>
+          <li><a href="faq.html">سولات متداول</a></li>
+          <li><a href="privacy.html">قوانین همکاری</a></li>
+          <li><a href="testimonials.html">نظرات کاربران</a></li>
+          <li><a href="404.html">ارور 404</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="#services">توسعه فرانت‌اند</a></li>
+          <li><a href="#services">طراحی رابط کاربری</a></li>
+          <li><a href="#services">موشن و انیمیشن</a></li>
+          <li><a href="#services">بهینه‌سازی و سرعت</a></li>
+          <li><a href="#services">مشاوره و بازطراحی</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© ۱۴۰۳ کامیار احمدی — تمامی حقوق محفوظ است.</span>
+      <span>طراحی و توسعه با دقت و عشق، در تهران.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts"></div>
+<button class="to-top" id="toTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 56 56"><circle class="tt-bg" cx="28" cy="28" r="26"></circle><circle class="tt-ring" id="ttRing" cx="28" cy="28" r="26"></circle></svg>
+  <i class="ri-arrow-up-line" style="position:relative"></i>
+</button>
+<script src="js/index.js"></script>
+</body>
+</html>
